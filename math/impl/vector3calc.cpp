@@ -1,4 +1,5 @@
-#include "vector3calc.h"
+#include <Vector3.h>
+#include <Matrix4x4.h>
 
 #include <assert.h>
 #include <math.h>
@@ -61,9 +62,9 @@ Vector3 Normalize(const Vector3& _v)
 Vector3 Transform(const Vector3& _vector, const Matrix4x4& _matrix)
 {
 	Vector3 result{};
-	result.x = 
+	result.x =
 		_vector.x * _matrix.m[0][0] +
-		_vector.y * _matrix.m[1][0] + 
+		_vector.y * _matrix.m[1][0] +
 		_vector.z * _matrix.m[2][0] +
 		1.0f * _matrix.m[3][0];
 	result.y =
