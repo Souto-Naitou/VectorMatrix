@@ -60,6 +60,7 @@ public:
     float   Length()                const;
     float   LengthWithoutRoot()     const;
     Vector3 Normalize()             const;
+    void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
 
     /// ==========
     /// minus sign
