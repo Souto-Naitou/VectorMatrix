@@ -3,6 +3,15 @@
 
 #include "Vector3.h"
 
+Vector3 Vector3::operator-() const
+{
+    return Vector3(-x, -y, -z);
+}
+
+/// =======
+/// Vector3
+/// =======
+
 Vector3& Vector3::operator+=(const Vector3& _rv)
 {
     x += _rv.x;
@@ -27,32 +36,6 @@ Vector3& Vector3::operator*=(const Vector3& _rv)
     return *this;
 }
 
-Vector3& Vector3::operator+=(const Vector2& _rv)
-{
-    x += _rv.x;
-    y += _rv.y;
-    return *this;
-}
-
-Vector3& Vector3::operator-=(const Vector2& _rv)
-{
-    x -= _rv.x;
-    y -= _rv.y;
-    return *this;
-}
-
-Vector3& Vector3::operator*=(const Vector2& _rv)
-{
-    x *= _rv.x;
-    y *= _rv.y;
-    return *this;
-}
-
-Vector3 Vector3::operator-() const
-{
-    return Vector3(-x, -y, -z);
-}
-
 Vector3 Vector3::operator-(const Vector3& _v)
 {
     Vector3 result{};
@@ -71,7 +54,6 @@ Vector3 Vector3::operator*(const Vector3& _v)
     return result;
 }
 
-
 Vector3 Vector3::operator+(const Vector3& _v)
 {
     Vector3 result{};
@@ -80,6 +62,10 @@ Vector3 Vector3::operator+(const Vector3& _v)
     result.z = z + _v.z;
     return result;
 }
+
+/// =====
+/// float
+/// =====
 
 Vector3 Vector3::operator*(float _f)
 {
@@ -112,6 +98,31 @@ Vector3& Vector3::operator/=(float _f)
     x /= _f;
     y /= _f;
     z /= _f;
+    return *this;
+}
+
+/// =======
+/// Vector2
+/// =======
+
+Vector3& Vector3::operator+=(const Vector2& _rv)
+{
+    x += _rv.x;
+    y += _rv.y;
+    return *this;
+}
+
+Vector3& Vector3::operator-=(const Vector2& _rv)
+{
+    x -= _rv.x;
+    y -= _rv.y;
+    return *this;
+}
+
+Vector3& Vector3::operator*=(const Vector2& _rv)
+{
+    x *= _rv.x;
+    y *= _rv.y;
     return *this;
 }
 
