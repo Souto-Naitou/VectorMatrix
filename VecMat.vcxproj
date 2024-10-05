@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="math\impl\Vector2.cpp" />
     <ClCompile Include="math\impl\Vector3.cpp" />
     <ClCompile Include="math\impl\vector3calc.cpp" />
+    <ClCompile Include="math\impl\Vector4.cpp" />
     <ClCompile Include="math\MathExtension\mathExtension.cpp" />
     <ClCompile Include="math\matrix4calc.cpp" />
     <ClCompile Include="math\Matrix4x4.cpp" />
-    <ClCompile Include="math\Vector2.cpp" />
-    <ClCompile Include="math\Vector4.cpp" />
     <ClCompile Include="VecMat.cpp" />
   </ItemGroup>
   <ItemGroup>
