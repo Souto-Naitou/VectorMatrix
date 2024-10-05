@@ -5,7 +5,8 @@
 /// <summary>
 /// 4x4行列
 /// </summary>
-struct Matrix4x4 {
+class Matrix4x4 {
+public:
 	float m[4][4];
 	Matrix4x4 operator*=(const Matrix4x4& _lm);
 };
