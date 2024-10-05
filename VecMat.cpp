@@ -12,6 +12,7 @@ int main()
     Vector3 result;
     result = a1;
     result = a2;
+    a3 = result.xy();
 
     return 0;
 }

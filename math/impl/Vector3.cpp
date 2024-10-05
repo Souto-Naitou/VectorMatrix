@@ -40,6 +40,14 @@ Vector3 Vector3::Normalize() const
     );
 }
 
+void Vector3::Lerp(const Vector3& _begin, const Vector3& _end, float _t)
+{
+    x = (1.0f - _t) * _begin.x + _t * _end.x;
+    y = (1.0f - _t) * _begin.y + _t * _end.y;
+    z = (1.0f - _t) * _begin.z + _t * _end.z;
+    return;
+}
+
 /// ==========
 /// minus sign
 /// ==========
