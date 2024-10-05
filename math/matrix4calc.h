@@ -24,7 +24,7 @@ Matrix4x4 MakeRotateZMatrix(float _radian);
 
 #ifdef NOTDEFINE
 // Transform関数はVector3へ ↓
-#include "Vector3/calc/vector3calc.h";
+#include <vector3calc.h>;
 #endif //NOTDEFINE 
 
 Matrix4x4 MakeAffineMatrix(
