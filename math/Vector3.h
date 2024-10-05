@@ -55,9 +55,11 @@ public:
     /// ===========
 
     float Dot(const Vector3& _v) const;
+    float Length() const;
+    float LengthWithoutRoot() const;
+    Vector3 Normalize() const;
 
-
-    /// マイナス符号
+    /// minus sign
     Vector3 operator-() const;
 
     /// =======

@@ -1,7 +1,8 @@
 // Copyright © 2024 Souto-Naitou. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-#include "Vector3.h"
+#include <Vector3.h>
+#include <cmath>
 
 float Vector3::Dot(const Vector3& _v) const
 {
@@ -9,6 +10,26 @@ float Vector3::Dot(const Vector3& _v) const
         x * _v.x +
         y * _v.y +
         z * _v.z
+    );
+}
+
+float Vector3::Length() const
+{
+    return std::sqrtf(x * x + y * y + z * z);
+}
+
+float Vector3::LengthWithoutRoot() const
+{
+    return x * x + y * y + z * z;
+}
+
+Vector3 Vector3::Normalize() const
+{
+    float length = this->Length();
+    return Vector3(
+        x / length,
+        y / length,
+        z / length
     );
 }
 
