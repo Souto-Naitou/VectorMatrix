@@ -50,6 +50,13 @@ public:
 
     inline Vector2 xy() { return Vector2(x, y); }
 
+    /// ===========
+    /// calcuration
+    /// ===========
+
+    float Dot(const Vector3& _v) const;
+
+
     /// マイナス符号
     Vector3 operator-() const;
 

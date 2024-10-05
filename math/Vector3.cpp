@@ -3,6 +3,15 @@
 
 #include "Vector3.h"
 
+float Vector3::Dot(const Vector3& _v) const
+{
+    return float(
+        x * _v.x +
+        y * _v.y +
+        z * _v.z
+    );
+}
+
 Vector3 Vector3::operator-() const
 {
     return Vector3(-x, -y, -z);
