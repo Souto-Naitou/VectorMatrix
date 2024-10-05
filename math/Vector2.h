@@ -26,7 +26,20 @@ public:
         y = 0.0f;
     }
 
+    /// ===========
+    /// calcuration
+    /// ===========
+
+    float   Dot(const Vector2& _v)  const;
+    float   Length()                const;
+    float   LengthWithoutRoot()     const;
+    Vector2 Normalize()             const;
+    void    Lerp(const Vector2& _begin, const Vector2& _end, float _t);
+
+    /// ==========
     /// Minus sign
+    /// ==========
+    
     Vector2 operator-() const;
 
     /// =====
