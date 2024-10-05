@@ -2,7 +2,14 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
 #include <Vector3.h>
+#include <Matrix4x4.h>
+
+#include <cassert>
 #include <cmath>
+
+/// ===========
+/// calcuration
+/// ===========
 
 float Vector3::Dot(const Vector3& _v) const
 {
@@ -32,6 +39,10 @@ Vector3 Vector3::Normalize() const
         z / length
     );
 }
+
+/// ==========
+/// minus sign
+/// ==========
 
 Vector3 Vector3::operator-() const
 {
