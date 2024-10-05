@@ -4,7 +4,7 @@
 #pragma once
 
 /// <summary>
-/// 2次元ベクトル
+/// 2th Dimension Vector
 /// </summary>
 class Vector2 final{
 public:
@@ -26,7 +26,7 @@ public:
         y = 0.0f;
     }
 
-    /// マイナス符号
+    /// Minus sign
     Vector2 operator-() const;
 
     /// =====

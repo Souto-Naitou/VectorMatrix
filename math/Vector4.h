@@ -7,7 +7,7 @@
 #include <Vector2.h>
 
 /// <summary>
-/// 4次元ベクトル
+/// 4th Dimension Vector
 /// </summary>
 class Vector4 final {
 public:
@@ -71,6 +71,10 @@ public:
         w = 0.0f;
         return;
     }
+
+    inline Vector3 xyz() { return Vector3(x, y, z); }
+
+    inline Vector2 xy() { return Vector2(x, y); }
 
     /// マイナス符号
     Vector4 operator-() const;

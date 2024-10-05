@@ -8,29 +8,9 @@ Vector2 Vector2::operator-() const
     return Vector2(-x, -y);
 }
 
-Vector2 Vector2::operator+(const Vector2& _v)
-{
-    Vector2 result{};
-    result.x = x + _v.x;
-    result.y = y + _v.y;
-    return result;
-}
-
-Vector2 Vector2::operator-(const Vector2& _v)
-{
-    Vector2 result{};
-    result.x = x - _v.x;
-    result.y = y - _v.y;
-    return result;
-}
-
-Vector2 Vector2::operator*(const Vector2& _v)
-{
-    Vector2 result{};
-    result.x = x * _v.x;
-    result.y = y * _v.y;
-    return result;
-}
+/// =====
+/// float
+/// =====
 
 Vector2 Vector2::operator*(float _f)
 {
@@ -62,6 +42,34 @@ Vector2& Vector2::operator/=(float _f)
     return *this;
 }
 
+/// =======
+/// Vector2
+/// =======
+
+Vector2 Vector2::operator+(const Vector2& _v)
+{
+    Vector2 result{};
+    result.x = x + _v.x;
+    result.y = y + _v.y;
+    return result;
+}
+
+Vector2 Vector2::operator-(const Vector2& _v)
+{
+    Vector2 result{};
+    result.x = x - _v.x;
+    result.y = y - _v.y;
+    return result;
+}
+
+Vector2 Vector2::operator*(const Vector2& _v)
+{
+    Vector2 result{};
+    result.x = x * _v.x;
+    result.y = y * _v.y;
+    return result;
+}
+
 Vector2& Vector2::operator+=(const Vector2& _v)
 {
     x += _v.x;
@@ -82,6 +90,10 @@ Vector2& Vector2::operator*=(const Vector2& _v)
     y *= _v.y;
     return *this;
 }
+
+/// =========
+/// overscope
+/// =========
 
 Vector2 operator*(const float _f, const Vector2& _v)
 {

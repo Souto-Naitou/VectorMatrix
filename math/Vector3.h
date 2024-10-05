@@ -6,7 +6,7 @@
 #include <Vector2.h>
 
 /// <summary>
-/// 3次元ベクトル
+/// 3th Dimension Vector
 /// </summary>
 class Vector3 final {
 public:
@@ -47,6 +47,8 @@ public:
         z = 0.0f;
         return;
     }
+
+    inline Vector2 xy() { return Vector2(x, y); }
 
     /// マイナス符号
     Vector3 operator-() const;
