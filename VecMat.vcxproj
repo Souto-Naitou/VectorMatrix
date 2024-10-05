@@ -34,7 +34,6 @@
     <ClInclude Include="math\Matrix4x4.h" />
     <ClInclude Include="math\Vector2.h" />
     <ClInclude Include="math\Vector3.h" />
-    <ClInclude Include="math\vector3calc.h" />
     <ClInclude Include="math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
