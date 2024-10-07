@@ -56,10 +56,11 @@ public:
     /// calcuration
     /// ===========
 
-    float   Dot(const Vector3& _v)  const;
-    float   Length()                const;
-    float   LengthWithoutRoot()     const;
-    Vector3 Normalize()             const;
+    float   Dot(const Vector3& _v)                  const;
+    float   Length()                                const;
+    float   LengthWithoutRoot()                     const;
+    Vector3 Normalize()                             const;
+    float   Distance(const Vector3& _destination)   const;
     void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
 
     /// ==========
@@ -76,9 +77,9 @@ public:
     Vector3& operator-=(const Vector3& _rv);
     Vector3& operator*=(const Vector3& _rv);
 
-    Vector3 operator+(const Vector3& _v);
-    Vector3 operator-(const Vector3& _v);
-    Vector3 operator*(const Vector3& _v);
+    Vector3 operator+(const Vector3& _v) const;
+    Vector3 operator-(const Vector3& _v) const;
+    Vector3 operator*(const Vector3& _v) const;
 
     /// =====
     /// float
@@ -86,8 +87,8 @@ public:
 
     Vector3 operator+(float) = delete;
     Vector3 operator-(float) = delete;
-    Vector3 operator*(float _f);
-    Vector3 operator/(float _f);
+    Vector3 operator*(float _f) const;
+    Vector3 operator/(float _f) const;
     Vector3& operator+=(float) = delete;
     Vector3& operator-=(float) = delete;
     Vector3& operator*=(float _f);
@@ -101,9 +102,9 @@ public:
     Vector3& operator-=(const Vector2& _rv);
     Vector3& operator*=(const Vector2& _rv);
 
-    Vector3 operator+(const Vector2& _v);
-    Vector3 operator-(const Vector2& _v);
-    Vector3 operator*(const Vector2& _v);
+    Vector3 operator+(const Vector2& _v) const;
+    Vector3 operator-(const Vector2& _v) const;
+    Vector3 operator*(const Vector2& _v) const;
 };
 
 Vector3 operator*(const float _f, const Vector3& _v);
