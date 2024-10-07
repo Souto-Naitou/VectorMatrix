@@ -5,6 +5,10 @@
 
 #include <cmath>
 
+/// ===========
+/// calcuration
+/// ===========
+
 float Vector2::Dot(const Vector2& _v) const
 {
     return x * _v.x + y * _v.y;
@@ -45,7 +49,7 @@ Vector2 Vector2::operator-() const
 /// float
 /// =====
 
-Vector2 Vector2::operator*(float _f)
+Vector2 Vector2::operator*(float _f) const
 {
     Vector2 result{};
     result.x = x * _f;
@@ -53,7 +57,7 @@ Vector2 Vector2::operator*(float _f)
     return result;
 }
 
-Vector2 Vector2::operator/(float _f)
+Vector2 Vector2::operator/(float _f) const
 {
     Vector2 result{};
     result.x = x / _f;
@@ -79,7 +83,7 @@ Vector2& Vector2::operator/=(float _f)
 /// Vector2
 /// =======
 
-Vector2 Vector2::operator+(const Vector2& _v)
+Vector2 Vector2::operator+(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x + _v.x;
@@ -87,7 +91,7 @@ Vector2 Vector2::operator+(const Vector2& _v)
     return result;
 }
 
-Vector2 Vector2::operator-(const Vector2& _v)
+Vector2 Vector2::operator-(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x - _v.x;
@@ -95,7 +99,7 @@ Vector2 Vector2::operator-(const Vector2& _v)
     return result;
 }
 
-Vector2 Vector2::operator*(const Vector2& _v)
+Vector2 Vector2::operator*(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x * _v.x;

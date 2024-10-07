@@ -48,8 +48,8 @@ public:
 
     Vector2 operator+(float) = delete;
     Vector2 operator-(float) = delete;
-    Vector2 operator*(float _f);
-    Vector2 operator/(float _f);
+    Vector2 operator*(float _f) const;
+    Vector2 operator/(float _f) const;
     Vector2& operator+=(float _f) = delete;
     Vector2& operator-=(float _f) = delete;
     Vector2& operator*=(float _f);
@@ -59,9 +59,9 @@ public:
     /// Vector2
     /// =======
 
-    Vector2 operator+(const Vector2& _v);
-    Vector2 operator-(const Vector2& _v);
-    Vector2 operator*(const Vector2& _v);
+    Vector2 operator+(const Vector2& _v) const;
+    Vector2 operator-(const Vector2& _v) const;
+    Vector2 operator*(const Vector2& _v) const;
 
     Vector2& operator+=(const Vector2& _v);
     Vector2& operator-=(const Vector2& _v);
