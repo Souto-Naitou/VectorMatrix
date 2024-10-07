@@ -3,6 +3,43 @@
 
 #include "Vector2.h"
 
+#include <cmath>
+
+/// ===========
+/// calcuration
+/// ===========
+
+float Vector2::Dot(const Vector2& _v) const
+{
+    return x * _v.x + y * _v.y;
+}
+
+float Vector2::Length() const
+{
+    return std::sqrtf(x * x + y * y);
+}
+
+float Vector2::LengthWithoutRoot() const
+{
+    return x * x + y * y;
+}
+
+Vector2 Vector2::Normalize() const
+{
+    float length = this->Length();
+    return Vector2(
+        x / length,
+        y / length
+    );
+}
+
+void Vector2::Lerp(const Vector2& _begin, const Vector2& _end, float _t)
+{
+    x = (1.0f - _t) * _begin.x + _t * _end.x;
+    y = (1.0f - _t) * _begin.y + _t * _end.y;
+    return;
+}
+
 Vector2 Vector2::operator-() const
 {
     return Vector2(-x, -y);
@@ -12,7 +49,7 @@ Vector2 Vector2::operator-() const
 /// float
 /// =====
 
-Vector2 Vector2::operator*(float _f)
+Vector2 Vector2::operator*(float _f) const
 {
     Vector2 result{};
     result.x = x * _f;
@@ -20,7 +57,7 @@ Vector2 Vector2::operator*(float _f)
     return result;
 }
 
-Vector2 Vector2::operator/(float _f)
+Vector2 Vector2::operator/(float _f) const
 {
     Vector2 result{};
     result.x = x / _f;
@@ -46,7 +83,7 @@ Vector2& Vector2::operator/=(float _f)
 /// Vector2
 /// =======
 
-Vector2 Vector2::operator+(const Vector2& _v)
+Vector2 Vector2::operator+(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x + _v.x;
@@ -54,7 +91,7 @@ Vector2 Vector2::operator+(const Vector2& _v)
     return result;
 }
 
-Vector2 Vector2::operator-(const Vector2& _v)
+Vector2 Vector2::operator-(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x - _v.x;
@@ -62,7 +99,7 @@ Vector2 Vector2::operator-(const Vector2& _v)
     return result;
 }
 
-Vector2 Vector2::operator*(const Vector2& _v)
+Vector2 Vector2::operator*(const Vector2& _v) const
 {
     Vector2 result{};
     result.x = x * _v.x;
