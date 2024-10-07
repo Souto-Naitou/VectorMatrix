@@ -48,6 +48,12 @@ void Vector3::Lerp(const Vector3& _begin, const Vector3& _end, float _t)
     return;
 }
 
+float Vector3::Distance(const Vector3& _destination) const
+{
+    Vector3 distance = _destination - *this;
+    return distance.Length();
+}
+
 /// ==========
 /// minus sign
 /// ==========
@@ -85,7 +91,7 @@ Vector3& Vector3::operator*=(const Vector3& _rv)
     return *this;
 }
 
-Vector3 Vector3::operator-(const Vector3& _v)
+Vector3 Vector3::operator-(const Vector3& _v) const
 {
     Vector3 result{};
     result.x = x - _v.x;
@@ -94,7 +100,7 @@ Vector3 Vector3::operator-(const Vector3& _v)
     return result;
 }
 
-Vector3 Vector3::operator*(const Vector3& _v)
+Vector3 Vector3::operator*(const Vector3& _v) const
 {
     Vector3 result{};
     result.x = x * _v.x;
@@ -103,7 +109,7 @@ Vector3 Vector3::operator*(const Vector3& _v)
     return result;
 }
 
-Vector3 Vector3::operator+(const Vector3& _v)
+Vector3 Vector3::operator+(const Vector3& _v) const
 {
     Vector3 result{};
     result.x = x + _v.x;
@@ -116,7 +122,7 @@ Vector3 Vector3::operator+(const Vector3& _v)
 /// float
 /// =====
 
-Vector3 Vector3::operator*(float _f)
+Vector3 Vector3::operator*(float _f) const
 {
     Vector3 result{};
     result.x = x * _f;
@@ -125,7 +131,7 @@ Vector3 Vector3::operator*(float _f)
     return result;
 }
 
-Vector3 Vector3::operator/(float _f)
+Vector3 Vector3::operator/(float _f) const
 {
     Vector3 result{};
     result.x = x / _f;
@@ -175,7 +181,7 @@ Vector3& Vector3::operator*=(const Vector2& _rv)
     return *this;
 }
 
-Vector3 Vector3::operator+(const Vector2& _v)
+Vector3 Vector3::operator+(const Vector2& _v) const
 {
     Vector3 result{};
     result.x = x + _v.x;
@@ -184,7 +190,7 @@ Vector3 Vector3::operator+(const Vector2& _v)
     return result;
 }
 
-Vector3 Vector3::operator-(const Vector2& _v)
+Vector3 Vector3::operator-(const Vector2& _v) const
 {
     Vector3 result{};
     result.x = x - _v.x;
@@ -193,7 +199,7 @@ Vector3 Vector3::operator-(const Vector2& _v)
     return result;
 }
 
-Vector3 Vector3::operator*(const Vector2& _v)
+Vector3 Vector3::operator*(const Vector2& _v) const
 {
     Vector3 result{};
     result.x = x * _v.x;
