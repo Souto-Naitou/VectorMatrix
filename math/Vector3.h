@@ -42,6 +42,14 @@ public:
         return;
     }
 
+    inline Vector3(const Vector2& _vec2, float _f)
+    {
+        x = _vec2.x;
+        y = _vec2.y;
+        z = _f;
+        return;
+    }
+
     inline Vector3(const Vector2& _vec2)
     {
         x = _vec2.x;
