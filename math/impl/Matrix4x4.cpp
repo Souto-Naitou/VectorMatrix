@@ -1,8 +1,8 @@
 // Copyright © 2024 Souto-Naitou. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-#include "Matrix4x4.h"
-#include <matrix4calc.h>
+#include "../Matrix4x4.h"
+#include "../Matrix4calc.h"
 
 Matrix4x4 Matrix4x4::operator*=(const Matrix4x4& _lm)
 {

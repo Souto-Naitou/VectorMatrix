@@ -1,9 +1,10 @@
 // Copyright © 2024 Souto-Naitou. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-#include "matrix4calc.h"
+#include "../matrix4calc.h"
+#include "../MathExtension/mathExtension.h"
+
 #include <cmath>
-#include "MathExtension/mathExtension.h"
 #include <cassert>
 
 Matrix4x4 Add(const Matrix4x4& _m1, const Matrix4x4& _m2)

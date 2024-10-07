@@ -2,8 +2,8 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
 #pragma once
-#include <Vector3.h>
-#include <Matrix4x4.h>
+#include "../Vector3.h"
+#include "../Matrix4x4.h"
 
 float cotanf(float _x);
 float clamp(
