@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="math\impl\Matrix4calc.cpp" />
+    <ClCompile Include="math\impl\Matrix4x4.cpp" />
     <ClCompile Include="math\impl\Vector2.cpp" />
     <ClCompile Include="math\impl\Vector3.cpp" />
-    <ClCompile Include="math\impl\vector3calc.cpp" />
+    <ClCompile Include="math\impl\Vector3calc.cpp" />
     <ClCompile Include="math\impl\Vector4.cpp" />
-    <ClCompile Include="math\MathExtension\mathExtension.cpp" />
-    <ClCompile Include="math\matrix4calc.cpp" />
-    <ClCompile Include="math\Matrix4x4.cpp" />
+    <ClCompile Include="math\MathExtension\MathExtension.cpp" />
     <ClCompile Include="VecMat.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="math\MathExtension\mathExtension.h" />
-    <ClInclude Include="math\matrix4calc.h" />
+    <ClInclude Include="math\MathExtension\MathExtension.h" />
+    <ClInclude Include="math\Matrix4calc.h" />
     <ClInclude Include="math\Matrix4x4.h" />
     <ClInclude Include="math\Vector2.h" />
     <ClInclude Include="math\Vector3.h" />
@@ -92,10 +92,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)/math;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)math;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)/math;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)math;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

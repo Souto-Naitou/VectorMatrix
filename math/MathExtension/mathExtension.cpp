@@ -1,6 +1,7 @@
 #include "mathExtension.h"
+#include "../Vector3.h"
+
 #include <cmath>
-#include <Vector3.h>
 
 float cotanf(float _x)
 {
