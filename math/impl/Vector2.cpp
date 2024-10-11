@@ -51,6 +51,14 @@ float Vector2::Theta(const Vector2& _origin) const
     return std::atan2(distance.y, distance.x);
 }
 
+Vector2 Vector2::Rotated(float _theta) const
+{
+    Vector2 result = {};
+    result.x = x * std::cosf(_theta) - y * std::sinf(_theta);
+    result.y = x * std::sinf(_theta) + y * std::cosf(_theta);
+    return result;
+}
+
 Vector2 Vector2::operator-() const
 {
     return Vector2(-x, -y);

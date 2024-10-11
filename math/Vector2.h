@@ -37,6 +37,7 @@ public:
     void    Lerp(const Vector2& _begin, const Vector2& _end, float _t);
     Vector2 Distance(const Vector2& _destination) const;
     float   Theta(const Vector2& _origin = { 0.0f, 0.0f }) const;
+    Vector2 Rotated(float _theta) const;
 
     /// ==========
     /// Minus sign
