@@ -40,5 +40,6 @@ Rect2 Rect2::operator+(const Vector2& _pos)
     result.y1 = y1 + static_cast<int>(_pos.y);
     result.x2 = x2 + static_cast<int>(_pos.x);
     result.y2 = y2 + static_cast<int>(_pos.y);
+    result.sizetemp_ = sizetemp_;
     return result;
 }
