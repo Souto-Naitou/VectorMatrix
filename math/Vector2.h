@@ -13,6 +13,13 @@ public:
 
     inline Vector2() : x(), y() {};
 
+    inline Vector2(const int& _x, const int& _y)
+    {
+        x = static_cast<float>(_x);
+        y = static_cast<float>(_y);
+        return;
+    }
+
     inline Vector2(const float& _x, const float& _y)
     {
         x = _x;
@@ -24,6 +31,7 @@ public:
     {
         x = _x;
         y = 0.0f;
+        return;
     }
 
     /// ===========
