@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="math\impl\Matrix4calc.cpp" />
     <ClCompile Include="math\impl\Matrix4x4.cpp" />
+    <ClCompile Include="math\impl\Rect2.cpp" />
     <ClCompile Include="math\impl\Vector2.cpp" />
     <ClCompile Include="math\impl\Vector3.cpp" />
     <ClCompile Include="math\impl\Vector3calc.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="math\MathExtension\MathExtension.h" />
     <ClInclude Include="math\Matrix4calc.h" />
     <ClInclude Include="math\Matrix4x4.h" />
+    <ClInclude Include="math\Rect2.h" />
     <ClInclude Include="math\Vector2.h" />
     <ClInclude Include="math\Vector3.h" />
     <ClInclude Include="math\Vector4.h" />
