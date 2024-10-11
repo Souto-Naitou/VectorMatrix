@@ -15,7 +15,7 @@ public:
     int x2;
     int y2;
 
-    Rect2() : x1(), y1(), x2(), y2() {};
+    Rect2() : x1(), y1(), x2(), y2(), sizetemp_() {};
     ~Rect2() = default;
 
     inline Rect2(const Vector2& _lt, const Vector2& _rb)
@@ -24,6 +24,7 @@ public:
         y1 = static_cast<int>(_lt.y);
         x2 = static_cast<int>(_rb.x);
         y2 = static_cast<int>(_rb.y);
+        sizetemp_ = 0;
         return;
     }
 
@@ -36,8 +37,12 @@ public:
 
     void MakeSquare(int _size, bool _centerMode = true);
     void MakeRectangle(int _width, int _height, bool _centerMode = true);
+    int GetSize() const { return sizetemp_; }
 
     Rect2 operator+(const Vector2& _pos);
+
+private:
+    int sizetemp_;
 };
 
 #endif // RECT2_H

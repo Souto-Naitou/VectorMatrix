@@ -2,6 +2,7 @@
 
 void Rect2::MakeSquare(int _size, bool _centerMode)
 {
+    sizetemp_ = _size;
     if (_centerMode)
     {
         x1 = y1 = -_size / 2;
