@@ -70,6 +70,7 @@ public:
     Vector3 Normalize()                             const;
     float   Distance(const Vector3& _destination)   const;
     void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
+    void    Theta(float& _azimuth, float& _elevation, const Vector3& _origin = { 0.0f, 0.0f }) const;
 
     /// ==========
     /// minus sign
