@@ -40,14 +40,14 @@ void Vector2::Lerp(const Vector2& _begin, const Vector2& _end, float _t)
     return;
 }
 
-Vector2 Vector2::Distance(const Vector2& _destination) const
+float Vector2::Distance(const Vector2& _destination) const
 {
-    return Vector2(_destination - *this);
+    return Vector2(_destination - *this).Length();
 }
 
 float Vector2::Theta(const Vector2& _origin) const
 {
-    Vector2 distance = _origin.Distance(*this);
+    Vector2 distance = *this - _origin;
     return std::atan2(distance.y, distance.x);
 }
 
