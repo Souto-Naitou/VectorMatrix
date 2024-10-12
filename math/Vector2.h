@@ -86,12 +86,11 @@ public:
     Vector2     Rotated(float _theta)                           const;
 
     /// <summary>
-    /// ベクトルvを軸aに投影した値を返す
+    /// 軸aに投影した値を返す
     /// </summary>
-    /// <param name="_v">ベクトル</param>
     /// <param name="_a">軸</param>
     /// <returns></returns>
-    float       Projection(const Vector2& _v, const Vector2& _a);
+    float       Projection(const Vector2& _a)                   const;
 
     /// <summary>
     /// 線形補間
