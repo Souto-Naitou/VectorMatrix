@@ -29,6 +29,11 @@ float Vector2::LengthWithoutRoot() const
     return x * x + y * y;
 }
 
+Vector2 Vector2::Perpendicular() const
+{
+    return Vector2(-y, x);
+}
+
 Vector2 Vector2::Normalize() const
 {
     float length = this->Length();

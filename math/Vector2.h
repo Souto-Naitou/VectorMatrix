@@ -42,6 +42,7 @@ public:
     float   Cross(const Vector2& _v) const;
     float   Length()                const;
     float   LengthWithoutRoot()     const;
+    Vector2 Perpendicular() const;
     Vector2 Normalize()             const;
     float   Distance(const Vector2& _destination) const;
     void    Lerp(const Vector2& _begin, const Vector2& _end, float _t);
