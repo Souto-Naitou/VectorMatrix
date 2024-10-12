@@ -43,6 +43,12 @@ Vector2 Vector2::Normalize() const
     );
 }
 
+float Vector2::Projection(const Vector2& _v, const Vector2& _a)
+{
+    Vector2 axis = _a.Normalize();
+    return _v.Dot(axis);
+}
+
 void Vector2::Lerp(const Vector2& _begin, const Vector2& _end, float _t)
 {
     x = (1.0f - _t) * _begin.x + _t * _end.x;
