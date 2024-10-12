@@ -39,6 +39,7 @@ public:
     /// ===========
 
     float   Dot(const Vector2& _v)  const;
+    float   Cross(const Vector2& _v) const;
     float   Length()                const;
     float   LengthWithoutRoot()     const;
     Vector2 Normalize()             const;
@@ -50,7 +51,7 @@ public:
     /// ==========
     /// Minus sign
     /// ==========
-    
+
     Vector2 operator-() const;
 
     /// =====

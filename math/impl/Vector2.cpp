@@ -14,6 +14,11 @@ float Vector2::Dot(const Vector2& _v) const
     return x * _v.x + y * _v.y;
 }
 
+float Vector2::Cross(const Vector2& _v) const
+{
+    return x * _v.y - y * _v.x;
+}
+
 float Vector2::Length() const
 {
     return std::sqrtf(x * x + y * y);
