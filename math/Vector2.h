@@ -38,47 +38,47 @@ public:
     /// calcuration
     /// ===========
 
-    float   Dot(const Vector2& _v)  const;
-    float   Cross(const Vector2& _v) const;
-    float   Length()                const;
-    float   LengthWithoutRoot()     const;
-    Vector2 Perpendicular() const;
-    Vector2 Normalize()             const;
-    float   Distance(const Vector2& _destination) const;
-    void    Lerp(const Vector2& _begin, const Vector2& _end, float _t);
-    float   Theta(const Vector2& _origin = { 0.0f, 0.0f }) const;
-    Vector2 Rotated(float _theta) const;
+    float       Dot(const Vector2& _v)                          const;
+    float       Cross(const Vector2& _v)                        const;
+    float       Length()                                        const;
+    float       LengthWithoutRoot()                             const;
+    Vector2     Perpendicular()                                 const;
+    Vector2     Normalize()                                     const;
+    float       Distance(const Vector2& _destination)           const;
+    float       Theta(const Vector2& _origin = { 0.0f, 0.0f })  const;
+    Vector2     Rotated(float _theta)                           const;
+    void        Lerp(const Vector2& _begin, const Vector2& _end, float _t);
 
     /// ==========
     /// Minus sign
     /// ==========
 
-    Vector2 operator-() const;
+    Vector2     operator-() const;
 
     /// =====
     /// float
     /// =====
 
-    Vector2 operator+(float) = delete;
-    Vector2 operator-(float) = delete;
-    Vector2 operator*(float _f) const;
-    Vector2 operator/(float _f) const;
-    Vector2& operator+=(float _f) = delete;
-    Vector2& operator-=(float _f) = delete;
-    Vector2& operator*=(float _f);
-    Vector2& operator/=(float _f);
+    Vector2     operator+(float) = delete;
+    Vector2     operator-(float) = delete;
+    Vector2     operator*(float _f) const;
+    Vector2     operator/(float _f) const;
+    Vector2&    operator+=(float _f) = delete;
+    Vector2&    operator-=(float _f) = delete;
+    Vector2&    operator*=(float _f);
+    Vector2&    operator/=(float _f);
 
     /// =======
     /// Vector2
     /// =======
 
-    Vector2 operator+(const Vector2& _v) const;
-    Vector2 operator-(const Vector2& _v) const;
-    Vector2 operator*(const Vector2& _v) const;
+    Vector2     operator+(const Vector2& _v) const;
+    Vector2     operator-(const Vector2& _v) const;
+    Vector2     operator*(const Vector2& _v) const;
 
-    Vector2& operator+=(const Vector2& _v);
-    Vector2& operator-=(const Vector2& _v);
-    Vector2& operator*=(const Vector2& _v);
+    Vector2&    operator+=(const Vector2& _v);
+    Vector2&    operator-=(const Vector2& _v);
+    Vector2&    operator*=(const Vector2& _v);
 };
 
 Vector2 operator*(const float _f, const Vector2& _v);
