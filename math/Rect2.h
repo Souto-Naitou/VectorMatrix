@@ -6,6 +6,7 @@
 
 #include "Vector2.h"
 #include "Vector3.h"
+#include <vector>
 
 class Rect2
 {
@@ -30,10 +31,12 @@ public:
 
     Rect2(const Vector3&) = delete;
 
-    Vector2 LeftTop() { return Vector2(x1, y1); }
-    Vector2 RightTop() { return Vector2(x2, y1); }
-    Vector2 RightBottom() { return Vector2(x2, y2); }
-    Vector2 LeftBottom() { return Vector2(x1, y2); }
+    Vector2 LeftTop()       { return Vector2(x1, y1); }
+    Vector2 RightTop()      { return Vector2(x2, y1); }
+    Vector2 RightBottom()   { return Vector2(x2, y2); }
+    Vector2 LeftBottom()    { return Vector2(x1, y2); }
+
+    std::vector<Vector2> GetVertices();
 
     void MakeSquare(int _size, bool _centerMode = true);
     void MakeRectangle(int _width, int _height, bool _centerMode = true);

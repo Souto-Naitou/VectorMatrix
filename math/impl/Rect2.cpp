@@ -3,6 +3,17 @@
 
 #include "Rect2.h"
 
+std::vector<Vector2> Rect2::GetVertices()
+{
+    std::vector<Vector2> result = {};
+    result.push_back(LeftTop());
+    result.push_back(RightTop());
+    result.push_back(RightBottom());
+    result.push_back(LeftBottom());
+
+    return result;
+}
+
 void Rect2::MakeSquare(int _size, bool _centerMode)
 {
     sizetemp_ = _size;
