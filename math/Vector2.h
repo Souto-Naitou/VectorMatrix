@@ -13,6 +13,13 @@ public:
 
     inline Vector2() : x(), y() {};
 
+    inline Vector2(const unsigned int _x, const unsigned int& _y)
+    {
+        x = static_cast<float>(_x);
+        y = static_cast<float>(_y);
+        return;
+    }
+
     inline Vector2(const int& _x, const int& _y)
     {
         x = static_cast<float>(_x);
