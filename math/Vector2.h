@@ -41,10 +41,8 @@ public:
         return;
     }
 
-    explicit inline Vector2(const unsigned int&& _x, const unsigned int&& _y) : Vector2(_x, _y) {};
-    explicit inline Vector2(const int&& _x, const int&& _y) : Vector2(_x, _y) {};
-    explicit inline Vector2(const float&& _x, const float&& _y) : Vector2(_x, _y) {};
-    explicit inline Vector2(const float&& _x) : Vector2(_x) {};
+    inline Vector2(const float&& _x, const float&& _y) : Vector2(_x, _y) {};
+    inline Vector2(const float&& _x) : Vector2(_x) {};
 
     /// ===========
     /// calcuration
