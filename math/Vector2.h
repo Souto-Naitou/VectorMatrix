@@ -13,36 +13,33 @@ public:
 
     inline Vector2() : x(), y() {};
 
-    explicit inline Vector2(const unsigned int _x, const unsigned int& _y)
+    inline Vector2(const unsigned int _x, const unsigned int& _y)
     {
         x = static_cast<float>(_x);
         y = static_cast<float>(_y);
         return;
     }
 
-    explicit inline Vector2(const int& _x, const int& _y)
+    inline Vector2(const int& _x, const int& _y)
     {
         x = static_cast<float>(_x);
         y = static_cast<float>(_y);
         return;
     }
 
-    explicit inline Vector2(const float& _x, const float& _y)
+    inline Vector2(const float& _x, const float& _y)
     {
         x = _x;
         y = _y;
         return;
     }
 
-    explicit inline Vector2(const float& _x)
+    inline Vector2(const float& _x)
     {
         x = _x;
         y = 0.0f;
         return;
     }
-
-    inline Vector2(const float&& _x, const float&& _y) : Vector2(_x, _y) {};
-    inline Vector2(const float&& _x) : Vector2(_x) {};
 
     /// ===========
     /// calcuration
