@@ -27,9 +27,6 @@
     <ClCompile Include="math\impl\vector3calc.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="math\impl\Matrix4calc.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="math\impl\Matrix4x4.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -45,9 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\MathExtension\mathExtension.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="math\matrix4calc.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="math\Matrix4x4.h">
