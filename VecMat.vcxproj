@@ -23,7 +23,7 @@
     <ClCompile Include="math\impl\Rect2.cpp" />
     <ClCompile Include="math\impl\Vector2.cpp" />
     <ClCompile Include="math\impl\Vector3.cpp" />
-    <ClCompile Include="math\impl\Vector3calc.cpp" />
+    <ClCompile Include="math\impl\Vector3Fn.cpp" />
     <ClCompile Include="math\impl\Vector4.cpp" />
     <ClCompile Include="math\MathExtension\MathExtension.cpp" />
     <ClCompile Include="VecMat.cpp" />
