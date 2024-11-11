@@ -1,5 +1,7 @@
-[![DebugBuild](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml/badge.svg?branch=master)](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml)
-
+# master
+|Debug|Release|
+|:---:|:---:|
+|[![DebugBuild](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml/badge.svg?branch=master)](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml)|[![ReleaseBuild](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/ReleaseBuild.yml/badge.svg?branch=master)](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/ReleaseBuild.yml)|
 # インストール
 以下のフォルダーを任意の場所にコピー
 ```
