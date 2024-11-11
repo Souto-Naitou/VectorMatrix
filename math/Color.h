@@ -2,7 +2,10 @@
 
 class Vector4;
 
-class Color
+/// <summary>
+/// Color class
+/// </summary>
+class Color final
 {
 public:
     struct RGBA
@@ -20,8 +23,8 @@ public:
     Color(unsigned int _color);
 
 
-    Vector4 Vec4() const;
-    unsigned int UInt32() const;
+    Vector4         Vec4()      const;
+    unsigned int    UInt32()    const;
 
 
 };
