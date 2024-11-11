@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="math\impl\Color.cpp" />
     <ClCompile Include="math\impl\Matrix4x4.cpp" />
     <ClCompile Include="math\impl\Rect2.cpp" />
     <ClCompile Include="math\impl\Vector2.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="VecMat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="math\Color.h" />
     <ClInclude Include="math\MathExtension\MathExtension.h" />
     <ClInclude Include="math\Matrix4x4.h" />
     <ClInclude Include="math\Rect2.h" />

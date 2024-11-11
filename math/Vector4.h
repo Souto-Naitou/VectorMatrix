@@ -119,7 +119,7 @@ public:
     /// =======
     /// Vector3
     /// =======
-    
+
     Vector4& operator+=(const Vector3& _rv);
     Vector4& operator-=(const Vector3& _rv);
     Vector4& operator*=(const Vector3& _rv);
