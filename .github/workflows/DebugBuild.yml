@@ -1,4 +1,4 @@
-name : DebugBuild
+name : Debug
 on:
   push:
     branches:
