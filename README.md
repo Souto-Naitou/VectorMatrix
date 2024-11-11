@@ -1,4 +1,4 @@
-# master
+# Workflow Status Badge
 |Debug|Release|
 |:---:|:---:|
 |[![DebugBuild](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml/badge.svg)](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/DebugBuild.yml)|[![ReleaseBuild](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/ReleaseBuild.yml/badge.svg)](https://github.com/Souto-Naitou/VectorMatrix/actions/workflows/ReleaseBuild.yml)|
