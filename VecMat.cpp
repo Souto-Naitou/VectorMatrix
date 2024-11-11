@@ -2,17 +2,25 @@
 
 #include <Vector2.h>
 #include <Vector3.h>
+#include <Vector4.h>
+#include "Color.h"
 
 int main()
 {
-    Vector3 a1 = {1.0f, 1.0f, 1.0f};
-    Vector2 a2 = {2.0f, 2.0f};
-    Vector2 a3 = {3.0f, 3.0f};
+    Color color = Vector4();
 
-    Vector3 result;
-    result = a1;
-    result = a2;
-    a3 = result.xy();
+    color = 0xffffffff;
+    color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+    color.rgba = { 255u, 255u, 255u, 255u };
+
+    unsigned int ucol = color.UInt32();
+    printf("0x%08x\n", ucol);
+
+    Color::RGBA rgba = color.rgba;
+    printf("%d, %d, %d, %d\n", rgba.r, rgba.g, rgba.b, rgba.a);
+
+    Vector4 vec4 = color.Vec4();
+    printf("%f, %f, %f, %f\n", vec4.x, vec4.y, vec4.z, vec4.w);
 
     return 0;
 }
