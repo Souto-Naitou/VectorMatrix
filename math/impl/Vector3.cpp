@@ -1,3 +1,4 @@
+#include "Vector3.h"
 // Copyright © 2024 Souto-Naitou. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
@@ -17,6 +18,15 @@ float Vector3::Dot(const Vector3& _v) const
         x * _v.x +
         y * _v.y +
         z * _v.z
+    );
+}
+
+Vector3 Vector3::Cross(const Vector3& _v) const
+{
+    return Vector3(
+        y * _v.z - z * _v.y,
+        z * _v.x - x * _v.z,
+        x * _v.y - y * _v.x
     );
 }
 
@@ -54,6 +64,12 @@ void Vector3::Theta(float& _azimuth, float& _elevation, const Vector3& _origin) 
     _azimuth = std::atan2(distance.y, distance.x);
     _elevation = std::atan2(distance.z, sqrtf(distance.x * distance.x + distance.y * distance.y));
     return;
+}
+
+float Vector3::Projection(const Vector3& _a) const
+{
+    Vector3 axis = _a.Normalize();
+    return (*this).Dot(axis);
 }
 
 float Vector3::Distance(const Vector3& _destination) const
