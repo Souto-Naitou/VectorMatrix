@@ -11,27 +11,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="math\impl\Color.cpp" />
-    <ClCompile Include="math\impl\Matrix4x4.cpp" />
-    <ClCompile Include="math\impl\Rect2.cpp" />
-    <ClCompile Include="math\impl\Vector2.cpp" />
-    <ClCompile Include="math\impl\Vector3.cpp" />
-    <ClCompile Include="math\impl\Vector3Fn.cpp" />
-    <ClCompile Include="math\impl\Vector4.cpp" />
-    <ClCompile Include="math\MathExtension\MathExtension.cpp" />
-    <ClCompile Include="VecMat.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="math\Color.h" />
-    <ClInclude Include="math\MathExtension\MathExtension.h" />
-    <ClInclude Include="math\Matrix4x4.h" />
-    <ClInclude Include="math\Rect2.h" />
-    <ClInclude Include="math\Vector2.h" />
-    <ClInclude Include="math\Vector3.h" />
-    <ClInclude Include="math\Vector4.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\math\Color.h" />
+    <ClInclude Include="..\math\MathExtension\mathExtension.h" />
+    <ClInclude Include="..\math\Matrix4x4.h" />
+    <ClInclude Include="..\math\Rect2.h" />
+    <ClInclude Include="..\math\Vector2.h" />
+    <ClInclude Include="..\math\Vector3.h" />
+    <ClInclude Include="..\math\Vector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\math\impl\Color.cpp" />
+    <ClCompile Include="..\math\impl\Matrix4x4.cpp" />
+    <ClCompile Include="..\math\impl\Rect2.cpp" />
+    <ClCompile Include="..\math\impl\Vector2.cpp" />
+    <ClCompile Include="..\math\impl\Vector3.cpp" />
+    <ClCompile Include="..\math\impl\Vector3Fn.cpp" />
+    <ClCompile Include="..\math\impl\Vector4.cpp" />
+    <ClCompile Include="..\math\MathExtension\mathExtension.cpp" />
+    <ClCompile Include="VecMat.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -69,14 +69,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)math;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(Configuration)\MiddleBuild</IntDir>
+    <IncludePath>$(ProjectDir)..\math\;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)..\Bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\Bin\$(Configuration)\Int\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)math;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)$(Configuration)\MiddleBuild</IntDir>
+    <IncludePath>$(ProjectDir)..\math\;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)..\Bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\Bin\$(Configuration)\Int\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
