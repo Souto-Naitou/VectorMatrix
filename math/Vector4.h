@@ -83,6 +83,10 @@ public:
 
     inline Vector2 xy() { return Vector2(x, y); }
 
+
+    void    Lerp(const Vector4& _begin, const Vector4& _end, float _t);
+
+
     /// マイナス符号
     Vector4 operator-() const;
 

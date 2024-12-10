@@ -8,9 +8,18 @@ Vector4 Vector4::operator-() const
     return Vector4(-x, -y, -z, -w);
 }
 
+void Vector4::Lerp(const Vector4& _begin, const Vector4& _end, float _t)
+{
+    x = _begin.x + (_end.x - _begin.x) * _t;
+    y = _begin.y + (_end.y - _begin.y) * _t;
+    z = _begin.z + (_end.z - _begin.z) * _t;
+    w = _begin.w + (_end.w - _begin.w) * _t;
+    return;
+}
+
 /// =======
 /// Vector4
-/// ======= 
+/// =======
 
 Vector4& Vector4::operator+=(const Vector4& _rv)
 {
