@@ -79,9 +79,9 @@ public:
         return;
     }
 
-    inline Vector3 xyz() { return Vector3(x, y, z); }
+    inline Vector3 xyz() const { return Vector3(x, y, z); }
 
-    inline Vector2 xy() { return Vector2(x, y); }
+    inline Vector2 xy() const { return Vector2(x, y); }
 
 
     void    Lerp(const Vector4& _begin, const Vector4& _end, float _t);
