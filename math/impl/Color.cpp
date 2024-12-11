@@ -21,6 +21,15 @@ Color::Color(unsigned int _color)
     return;
 }
 
+Color::Color(float _r, float _g, float _b, float _a)
+{
+    rgba.r = static_cast<unsigned int>(_r * 255.0f);
+    rgba.g = static_cast<unsigned int>(_g * 255.0f);
+    rgba.b = static_cast<unsigned int>(_b * 255.0f);
+    rgba.a = static_cast<unsigned int>(_a * 255.0f);
+    return;
+}
+
 Vector4 Color::Vec4() const
 {
     return {

@@ -21,7 +21,7 @@ public:
     inline Color() : rgba() {};
     Color(const Vector4& _vec4);
     Color(unsigned int _color);
-
+    Color(float _r, float _g, float _b, float _a);
 
     Vector4         Vec4()      const;
     unsigned int    UInt32()    const;
