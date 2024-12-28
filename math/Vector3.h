@@ -59,6 +59,8 @@ public:
     }
 
     inline Vector2 xy() const { return Vector2(x, y); }
+    inline Vector2 xz() const { return Vector2(x, z); }
+    inline Vector2 yz() const { return Vector2(y, z); }
 
     /// ===========
     /// calcuration
