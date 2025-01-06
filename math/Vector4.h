@@ -10,7 +10,7 @@
 /// <summary>
 /// 4th Dimension Vector
 /// </summary>
-class Vector4 final {
+class alignas(16) Vector4 final {
 public:
     float x;
     float y;

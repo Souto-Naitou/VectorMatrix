@@ -3,12 +3,12 @@
 
 #include <cmath>
 
-float cotanf(float _x)
+float Math::cotanf(float _x)
 {
 	return 1.0f / std::tanf(_x);
 }
 
-float clamp(float _x, float _min, float _max)
+float Math::clamp(float _x, float _min, float _max)
 {
 	float result = _x;
 	if (_x < _min) result = _min;
@@ -16,7 +16,7 @@ float clamp(float _x, float _min, float _max)
 	return result;
 }
 
-int clamp(int _x, int _min, int _max)
+int Math::clamp(int _x, int _min, int _max)
 {
 	int result = _x;
 	if (_x < _min) result = _min;
@@ -24,12 +24,12 @@ int clamp(int _x, int _min, int _max)
 	return result;
 }
 
-float Lerp(float _x, float _y, float _t)
+float Math::Lerp(float _x, float _y, float _t)
 {
 	return (1.0f - _t) * _x + _t * _y;
 }
 
-Vector3 TransformNormal(const Vector3& _v, const Matrix4x4& _m)
+Vector3 Math::TransformNormal(const Vector3& _v, const Matrix4x4& _m)
 {
 	Vector3 result
 	{
@@ -41,12 +41,12 @@ Vector3 TransformNormal(const Vector3& _v, const Matrix4x4& _m)
 	return result;
 }
 
-Vector3 Lerp(const Vector3& _vx, const Vector3& _vy, float _t)
+Vector3 Math::Lerp(const Vector3& _vx, const Vector3& _vy, float _t)
 {
 	return (1.0f - _t) * _vx + _t * _vy;
 }
 
-Vector3 Slerp(const Vector3& _vx, const Vector3& _vy, float _t)
+Vector3 Math::Slerp(const Vector3& _vx, const Vector3& _vy, float _t)
 {
 	Vector3 normvx = FMath::Normalize(_vx);
 	Vector3 normvy = FMath::Normalize(_vy);
