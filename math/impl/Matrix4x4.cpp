@@ -140,6 +140,7 @@ Matrix4x4 Matrix4x4::ViewportMatrix(float _left, float _top, float _width, float
     result.m[3][0] = _left + _width / 2.0f;
     result.m[3][1] = _top + _height / 2.0f;
     result.m[3][2] = _minDepth;
+    result.m[3][3] = 1.0f;
 
     return result;
 }

@@ -8,7 +8,7 @@ class Vector3;
 /// <summary>
 /// 4x4行列
 /// </summary>
-class alignas(16) Matrix4x4 {
+class Matrix4x4 {
 public:
     float m[4][4];
 
