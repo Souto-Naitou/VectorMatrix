@@ -78,6 +78,33 @@ Matrix4x4 Matrix4x4::RotateZMatrix(float _radian)
     return result;
 }
 
+Matrix4x4 Matrix4x4::RotateAxisAngleMatrix(const Vector3& _n, float _th)
+{
+    Matrix4x4 result{};
+
+    result.m[0][0] = _n.x * _n.x * (1.0f - std::cos(_th)) + std::cos(_th);
+    result.m[0][1] = _n.x * _n.y * (1.0f - std::cos(_th)) + _n.z * std::sin(_th);
+    result.m[0][2] = _n.x * _n.z * (1.0f - std::cos(_th)) - _n.y * std::sin(_th);
+    result.m[0][3] = 0.0f;
+
+    result.m[1][0] = _n.x * _n.y * (1.0f - std::cos(_th)) - _n.z * std::sin(_th);
+    result.m[1][1] = _n.y * _n.y * (1.0f - std::cos(_th)) + std::cos(_th);
+    result.m[1][2] = _n.y * _n.z * (1.0f - std::cos(_th)) + _n.x * std::sin(_th);
+    result.m[1][3] = 0.0f;
+
+    result.m[2][0] = _n.x * _n.z * (1.0f - std::cos(_th)) + _n.y * std::sin(_th);
+    result.m[2][1] = _n.y * _n.z * (1.0f - std::cos(_th)) - _n.x * std::sin(_th);
+    result.m[2][2] = _n.z * _n.z * (1.0f - std::cos(_th)) + std::cos(_th);
+    result.m[2][3] = 0.0f;
+
+    result.m[3][0] = 0.0f;
+    result.m[3][1] = 0.0f;
+    result.m[3][2] = 0.0f;
+    result.m[3][3] = 1.0f;
+
+    return result;
+}
+
 Matrix4x4 Matrix4x4::AffineMatrix(const Vector3& _scale, const Vector3& _rotate, const Vector3& _translate)
 {
     Matrix4x4 result{};

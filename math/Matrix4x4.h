@@ -38,6 +38,9 @@ public:
     /// <returns>Z回転行列</returns>
     static Matrix4x4 RotateZMatrix(float _radian);
 
+    /// <returns>任意軸回転行列</returns>
+    static Matrix4x4 RotateAxisAngleMatrix(const Vector3& _axis, float _angle);
+
     /// <summary>
     /// アフィン変換行列
     /// </summary>
