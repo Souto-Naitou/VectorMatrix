@@ -41,6 +41,9 @@ public:
     /// <returns>任意軸回転行列</returns>
     static Matrix4x4 RotateAxisAngleMatrix(const Vector3& _axis, float _angle);
 
+    /// <returns>方向から方向への行列</returns>
+    static Matrix4x4 DirectionToDirectionMatrix(const Vector3& _from, const Vector3& _to);
+
     /// <summary>
     /// アフィン変換行列
     /// </summary>
