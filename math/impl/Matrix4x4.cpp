@@ -105,6 +105,47 @@ Matrix4x4 Matrix4x4::RotateAxisAngleMatrix(const Vector3& _n, float _th)
     return result;
 }
 
+Matrix4x4 Matrix4x4::DirectionToDirectionMatrix(const Vector3& _from, const Vector3& _to)
+{
+    Vector3 n = _from.Cross(_to);
+    if (n.LengthWithoutRoot() != 0.0f)
+    {
+        n = n.Normalize();
+    }
+    else
+    {
+        if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.y, -_from.x, 0.0f).Normalize();
+        else if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.z, 0.0f, -_from.x).Normalize();
+    }
+
+
+    Matrix4x4 result = {};
+    float costh = _from.Dot(_to);
+    float sinth = _from.Cross(_to).Length();
+
+    result.m[0][0] = n.x * n.x * (1.0f - costh) + costh;
+    result.m[0][1] = n.x * n.y * (1.0f - costh) + n.z * sinth;
+    result.m[0][2] = n.x * n.z * (1.0f - costh) - n.y * sinth;
+    result.m[0][3] = 0.0f;
+
+    result.m[1][0] = n.x * n.y * (1.0f - costh) - n.z * sinth;
+    result.m[1][1] = n.y * n.y * (1.0f - costh) + costh;
+    result.m[1][2] = n.y * n.z * (1.0f - costh) + n.x * sinth;
+    result.m[1][3] = 0.0f;
+
+    result.m[2][0] = n.x * n.z * (1.0f - costh) + n.y * sinth;
+    result.m[2][1] = n.y * n.z * (1.0f - costh) - n.x * sinth;
+    result.m[2][2] = n.z * n.z * (1.0f - costh) + costh;
+    result.m[2][3] = 0.0f;
+
+    result.m[3][0] = 0.0f;
+    result.m[3][1] = 0.0f;
+    result.m[3][2] = 0.0f;
+    result.m[3][3] = 1.0f;
+
+    return result;
+}
+
 Matrix4x4 Matrix4x4::AffineMatrix(const Vector3& _scale, const Vector3& _rotate, const Vector3& _translate)
 {
     Matrix4x4 result{};
