@@ -1,5 +1,7 @@
 #include "Quaternion.h"
 
+#include "../Vector3.h"
+
 #include <cmath> // std::sqrt
 
 Quaternion Quaternion::Identity()
@@ -29,6 +31,21 @@ Quaternion Quaternion::Inversed() const
     return Conjugate(*this) / (x * x + y * y + z * z + w * w);
 }
 
+Quaternion Quaternion::RotateAxisAngleQuaternion(const Vector3& _axis, float _angle)
+{
+    float halfAngle = _angle * 0.5f;
+    float cosHalfAngle = std::cos(halfAngle);
+    float sinHalfAngle = std::sin(halfAngle);
+
+    Quaternion result = {};
+    result.x = sinHalfAngle * _axis.x;
+    result.y = sinHalfAngle * _axis.y;
+    result.z = sinHalfAngle * _axis.z;
+    result.w = cosHalfAngle;
+
+    return result;
+}
+
 Quaternion Quaternion::operator*(const Quaternion& _rq) const
 {
     Quaternion result = {};
@@ -47,6 +64,19 @@ Quaternion Quaternion::operator/(float _f) const
     result.y = y / _f;
     result.z = z / _f;
     result.w = w / _f;
+
+    return result;
+}
+
+Vector3 FMath::RotateVector(const Vector3& _v, const Quaternion& _q)
+{
+    Vector3 result = {};
+
+    Quaternion q = _q * Quaternion({ _v.x, _v.y, _v.z, 0.0f }) * Quaternion::Conjugate(_q);
+
+    result.x = q.x;
+    result.y = q.y;
+    result.z = q.z;
 
     return result;
 }

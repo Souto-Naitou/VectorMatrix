@@ -3,6 +3,7 @@
 
 #include "../Matrix4x4.h"
 #include "../Vector3.h"
+#include "../Quaternion.h"
 
 #include <cmath>
 
@@ -77,6 +78,34 @@ Matrix4x4 Matrix4x4::RotateZMatrix(float _radian)
 
     return result;
 }
+
+Matrix4x4 Matrix4x4::RotateMatrix(const Quaternion& _q)
+{
+    Matrix4x4 result = {};
+
+    result.m[0][0] = _q.w * _q.w + _q.x * _q.x - _q.y * _q.y - _q.z * _q.z;
+    result.m[0][1] = 2.0f * (_q.x * _q.y + _q.w * _q.z);
+    result.m[0][2] = 2.0f * (_q.x * _q.z - _q.w * _q.y);
+    result.m[0][3] = 0.0f;
+
+    result.m[1][0] = 2.0f * (_q.x * _q.y - _q.w * _q.z);
+    result.m[1][1] = _q.w * _q.w - _q.x * _q.x + _q.y * _q.y - _q.z * _q.z;
+    result.m[1][2] = 2.0f * (_q.y * _q.z + _q.w * _q.x);
+    result.m[1][3] = 0.0f;
+
+    result.m[2][0] = 2.0f * (_q.x * _q.z + _q.w * _q.y);
+    result.m[2][1] = 2.0f * (_q.y * _q.z - _q.w * _q.x);
+    result.m[2][2] = _q.w * _q.w - _q.x * _q.x - _q.y * _q.y + _q.z * _q.z;
+    result.m[2][3] = 0.0f;
+
+    result.m[3][0] = 0.0f;
+    result.m[3][1] = 0.0f;
+    result.m[3][2] = 0.0f;
+    result.m[3][3] = 1.0f;
+
+    return result;
+}
+
 
 Matrix4x4 Matrix4x4::RotateAxisAngleMatrix(const Vector3& _n, float _th)
 {

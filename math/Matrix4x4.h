@@ -3,6 +3,7 @@
 
 /// 前方宣言
 class Vector3;
+class Quaternion;
 
 #pragma once
 /// <summary>
@@ -37,6 +38,9 @@ public:
 
     /// <returns>Z回転行列</returns>
     static Matrix4x4 RotateZMatrix(float _radian);
+
+    /// <returns>Quaternionから回転行列を取得</returns>
+    static Matrix4x4 RotateMatrix(const Quaternion& _q);
 
     /// <returns>任意軸回転行列</returns>
     static Matrix4x4 RotateAxisAngleMatrix(const Vector3& _axis, float _angle);
