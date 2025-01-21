@@ -1,4 +1,5 @@
 #include "Quaternion.h"
+#include "Quaternion.h"
 
 #include "../Vector3.h"
 
@@ -46,6 +47,16 @@ Quaternion Quaternion::RotateAxisAngleQuaternion(const Vector3& _axis, float _an
     return result;
 }
 
+Quaternion Quaternion::operator+(const Quaternion& _rq) const
+{
+    return Quaternion({ x + _rq.x, y + _rq.y, z + _rq.z, w + _rq.w });
+}
+
+Quaternion Quaternion::operator-(const Quaternion& _rq) const
+{
+    return Quaternion({ x - _rq.x, y - _rq.y, z - _rq.z, w - _rq.w });
+}
+
 Quaternion Quaternion::operator*(const Quaternion& _rq) const
 {
     Quaternion result = {};
@@ -68,6 +79,16 @@ Quaternion Quaternion::operator/(float _f) const
     return result;
 }
 
+Quaternion Quaternion::operator-() const
+{
+    return Quaternion({ -x, -y, -z, -w });
+}
+
+Quaternion Quaternion::operator*(float _f) const
+{
+    return Quaternion({ x * _f, y * _f, z * _f, w * _f });
+}
+
 Vector3 FMath::RotateVector(const Vector3& _v, const Quaternion& _q)
 {
     Vector3 result = {};
@@ -79,4 +100,27 @@ Vector3 FMath::RotateVector(const Vector3& _v, const Quaternion& _q)
     result.z = q.z;
 
     return result;
+}
+
+Quaternion Quaternion::Slerp(const Quaternion& _begin, const Quaternion& _end, float _t)
+{
+    float dot = _begin.x * _end.x + _begin.y * _end.y + _begin.z * _end.z + _begin.w * _end.w;
+
+    Quaternion begin = _begin;
+
+    if (dot < 0.0f)
+    {
+        begin = -_begin;
+        dot = -dot;
+    }
+
+    /// ‚È‚·Šp‚ð‹‚ß‚é
+    float theta = std::acos(dot);
+
+    /// theta‚Æsin‚ðŽg‚Á‚Ä•âŠÔŒW”scale0, scale1‚ð‹‚ß‚é
+    float sinTheta = std::sin(theta);
+    float scale0 = std::sin((1.0f - _t) * theta) / sinTheta;
+    float scale1 = std::sin(_t * theta) / sinTheta;
+
+    return begin * scale0 + _end * scale1;
 }
