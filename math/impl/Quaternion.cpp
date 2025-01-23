@@ -1,4 +1,4 @@
-#include "Quaternion.h"
+ï»¿#include "Quaternion.h"
 #include "Quaternion.h"
 
 #include "../Vector3.h"
@@ -114,10 +114,10 @@ Quaternion Quaternion::Slerp(const Quaternion& _begin, const Quaternion& _end, f
         dot = -dot;
     }
 
-    /// ‚È‚·Šp‚ğ‹‚ß‚é
+    /// ãªã™è§’ã‚’æ±‚ã‚ã‚‹
     float theta = std::acos(dot);
 
-    /// theta‚Æsin‚ğg‚Á‚Ä•âŠÔŒW”scale0, scale1‚ğ‹‚ß‚é
+    /// thetaã¨sinã‚’ä½¿ã£ã¦è£œé–“ä¿‚æ•°scale0, scale1ã‚’æ±‚ã‚ã‚‹
     float sinTheta = std::sin(theta);
     float scale0 = std::sin((1.0f - _t) * theta) / sinTheta;
     float scale1 = std::sin(_t * theta) / sinTheta;
