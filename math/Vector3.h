@@ -74,7 +74,7 @@ public:
     float   Distance(const Vector3& _destination)   const;
     float   Projection(const Vector3& _a)           const;
     void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
-    void    Theta(float& _azimuth, float& _elevation, const Vector3& _origin = { 0.0f, 0.0f }) const;
+    void    Theta(float _azimuth, float _elevation, const Vector3& _origin = { 0.0f, 0.0f }) const;
 
     /// ==========
     /// minus sign

@@ -58,7 +58,7 @@ void Vector3::Lerp(const Vector3& _begin, const Vector3& _end, float _t)
     return;
 }
 
-void Vector3::Theta(float& _azimuth, float& _elevation, const Vector3& _origin) const
+void Vector3::Theta(float _azimuth, float _elevation, const Vector3& _origin) const
 {
     Vector3 distance = *this - _origin;
     _azimuth = std::atan2(distance.y, distance.x);
