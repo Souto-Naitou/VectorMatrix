@@ -137,6 +137,8 @@ public:
     Vector2&    operator+=(const Vector2& _v);
     Vector2&    operator-=(const Vector2& _v);
     Vector2&    operator*=(const Vector2& _v);
+
+    bool        operator==(const Vector2& _v) const;
 };
 
 Vector2 operator*(const float _f, const Vector2& _v);
