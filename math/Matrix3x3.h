@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
-/// ‘O•ûéŒ¾
+/// å‰æ–¹å®£è¨€
 class Vector2;
 
 /// <summary>
-/// 3x3s—ñ
+/// 3x3è¡Œåˆ—
 /// </summary>
 class Matrix3x3 final 
 {
