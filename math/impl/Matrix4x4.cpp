@@ -478,7 +478,6 @@ Matrix4x4& Matrix4x4::operator*=(const Matrix4x4& _rm)
                 m[off][i] += m[off][j] * _rm.m[j][i];
 
     return *this;
-
 }
 
 Matrix4x4 Matrix4x4::operator*(const Matrix4x4& _rm) const
