@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="..\math\Color.h" />
     <ClInclude Include="..\math\MathExtension\mathExtension.h" />
+    <ClInclude Include="..\math\Matrix3x3.h" />
     <ClInclude Include="..\math\Matrix4x4.h" />
     <ClInclude Include="..\math\Quaternion.h" />
     <ClInclude Include="..\math\Rect2.h" />
@@ -25,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\math\impl\Color.cpp" />
+    <ClCompile Include="..\math\impl\Matrix3x3.cpp" />
     <ClCompile Include="..\math\impl\Matrix4x4.cpp" />
     <ClCompile Include="..\math\impl\Quaternion.cpp" />
     <ClCompile Include="..\math\impl\Rect2.cpp" />
