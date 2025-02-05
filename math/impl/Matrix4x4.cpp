@@ -472,13 +472,11 @@ Matrix4x4& Matrix4x4::operator-=(const Matrix4x4& _rm)
 
 Matrix4x4& Matrix4x4::operator*=(const Matrix4x4& _rm)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            m[i][j] *= _rm.m[i][j];
-        }
-    }
+    for (int off = 0; off < 4; off++)
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+                m[off][i] += m[off][j] * _rm.m[j][i];
+
     return *this;
 }
 
