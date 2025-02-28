@@ -17,9 +17,9 @@ public:
     float z;
     float w;
 
-    inline Vector4() : x(), y(), z(), w() {};
+    Vector4() : x(), y(), z(), w() {};
 
-    inline Vector4(const float& _x, const float& _y, const float& _z, const float& _w)
+    Vector4(const float& _x, const float& _y, const float& _z, const float& _w)
     {
         x = _x;
         y = _y;
@@ -28,7 +28,7 @@ public:
         return;
     }
 
-    inline Vector4(const float& _x, const float& _y, const float& _z)
+    Vector4(const float& _x, const float& _y, const float& _z)
     {
         x = _x;
         y = _y;
@@ -37,7 +37,7 @@ public:
         return;
     }
 
-    inline Vector4(const float& _x, const float& _y)
+    Vector4(const float& _x, const float& _y)
     {
         x = _x;
         y = _y;
@@ -46,7 +46,7 @@ public:
         return;
     }
 
-    inline Vector4(const float& _x)
+    Vector4(const float& _x)
     {
         x = _x;
         y = 0.0f;
@@ -55,7 +55,7 @@ public:
         return;
     }
 
-    inline Vector4(const Vector3& _vec3)
+    Vector4(const Vector3& _vec3)
     {
         x = _vec3.x;
         y = _vec3.y;
@@ -64,7 +64,7 @@ public:
         return;
     }
 
-    inline Vector4(const Vector2& _vec2)
+    Vector4(const Vector2& _vec2)
     {
         x = _vec2.x;
         y = _vec2.y;
@@ -73,15 +73,24 @@ public:
         return;
     }
 
-    inline Vector4(const Color& _color)
+    Vector4(const Color& _color)
     {
         *this = _color.Vec4();
         return;
     }
 
-    inline Vector3 xyz() const { return Vector3(x, y, z); }
+    Vector4(const Vector3& _vec3, const float& _w)
+    {
+        x = _vec3.x;
+        y = _vec3.y;
+        z = _vec3.z;
+        w = _w;
+        return;
+    }
 
-    inline Vector2 xy() const { return Vector2(x, y); }
+    Vector3 xyz() const { return Vector3(x, y, z); }
+
+    Vector2 xy() const { return Vector2(x, y); }
 
 
     void    Lerp(const Vector4& _begin, const Vector4& _end, float _t);

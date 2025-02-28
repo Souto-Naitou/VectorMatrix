@@ -16,9 +16,9 @@ public:
     float y;
     float z;
 
-    inline Vector3() : x(), y(), z() {};
+    Vector3() : x(), y(), z() {};
 
-    inline Vector3(const float& _x, const float& _y, const float& _z)
+    Vector3(const float& _x, const float& _y, const float& _z)
     {
         x = _x;
         y = _y;
@@ -26,7 +26,7 @@ public:
         return;
     }
 
-    inline Vector3(const float& _x, const float& _y)
+    Vector3(const float& _x, const float& _y)
     {
         x = _x;
         y = _y;
@@ -34,7 +34,7 @@ public:
         return;
     }
 
-    inline Vector3(const float& _x)
+    Vector3(const float& _x)
     {
         x = _x;
         y = 0.0f;
@@ -42,7 +42,7 @@ public:
         return;
     }
 
-    inline Vector3(const Vector2& _vec2, float _f)
+    Vector3(const Vector2& _vec2, float _f)
     {
         x = _vec2.x;
         y = _vec2.y;
@@ -50,7 +50,7 @@ public:
         return;
     }
 
-    inline Vector3(const Vector2& _vec2)
+    Vector3(const Vector2& _vec2)
     {
         x = _vec2.x;
         y = _vec2.y;
@@ -58,9 +58,9 @@ public:
         return;
     }
 
-    inline Vector2 xy() const { return Vector2(x, y); }
-    inline Vector2 xz() const { return Vector2(x, z); }
-    inline Vector2 yz() const { return Vector2(y, z); }
+    Vector2 xy() const { return Vector2(x, y); }
+    Vector2 xz() const { return Vector2(x, z); }
+    Vector2 yz() const { return Vector2(y, z); }
 
     /// ===========
     /// calcuration
