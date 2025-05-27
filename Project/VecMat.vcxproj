@@ -23,6 +23,7 @@
     <ClInclude Include="..\math\Matrix3x3.h" />
     <ClInclude Include="..\math\Matrix4x4.h" />
     <ClInclude Include="..\math\Quaternion.h" />
+    <ClInclude Include="..\math\Range.h" />
     <ClInclude Include="..\math\Rect2.h" />
     <ClInclude Include="..\math\Vector2.h" />
     <ClInclude Include="..\math\Vector3.h" />
