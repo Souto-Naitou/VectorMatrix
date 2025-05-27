@@ -45,6 +45,9 @@
     <ClInclude Include="..\math\Matrix3x3.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\math\Range.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\math\impl\Color.cpp">
