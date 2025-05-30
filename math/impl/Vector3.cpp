@@ -43,6 +43,7 @@ float Vector3::LengthWithoutRoot() const
 Vector3 Vector3::Normalize() const
 {
     float length = this->Length();
+    if (length == 0.0f) return {};
     return Vector3(
         x / length,
         y / length,
