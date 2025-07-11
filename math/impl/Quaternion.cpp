@@ -1,9 +1,11 @@
-﻿#include "Quaternion.h"
+#include "Quaternion.h"
 #include "Quaternion.h"
 
 #include "../Vector3.h"
 
 #include <cmath> // std::sqrt
+#include <cassert>
+#include <algorithm>
 
 Quaternion Quaternion::Identity()
 {
@@ -114,13 +116,26 @@ Quaternion Quaternion::Slerp(const Quaternion& _begin, const Quaternion& _end, f
         dot = -dot;
     }
 
+    dot = std::clamp(dot, -1.0f, 1.0f);
+
     /// なす角を求める
     float theta = std::acos(dot);
 
     /// thetaとsinを使って補間係数scale0, scale1を求める
     float sinTheta = std::sin(theta);
+
+    if (sinTheta < 1e-6f) // 0に近い場合は線形補間
+    {
+        return begin * (1.0f - _t) + _end * _t;
+    }
+
     float scale0 = std::sin((1.0f - _t) * theta) / sinTheta;
     float scale1 = std::sin(_t * theta) / sinTheta;
+
+    if (std::isnan(scale0) || std::isnan(scale1))
+    {
+        assert(0);
+    }
 
     return begin * scale0 + _end * scale1;
 }

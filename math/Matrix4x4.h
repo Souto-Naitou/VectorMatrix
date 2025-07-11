@@ -62,6 +62,19 @@ public:
     );
 
     /// <summary>
+    /// スケール、回転、平行移動からアフィン変換行列を生成します。
+    /// </summary>
+    /// <param name="_scale">スケーリングを表す3次元ベクトル。</param>
+    /// <param name="_rotate">回転を表すクォータニオン。</param>
+    /// <param name="_translate">平行移動を表す3次元ベクトル。</param>
+    /// <returns>指定されたスケール、回転、平行移動を適用した4x4のアフィン変換行列。</returns>
+    static Matrix4x4 AffineMatrix(
+        const Vector3& _scale,
+        const Quaternion& _rotate,
+        const Vector3& _translate
+    );
+
+    /// <summary>
     /// 透視投影行列
     /// </summary>
     /// <param name="_fovY">視野角</param>
@@ -127,6 +140,8 @@ public:
     /// <param name="_translate">移動量</param>
     /// <returns></returns>
     static Matrix4x4 TranslateMatrix(const Vector3& _translate);
+
+    Vector3 GetTranslation() const;
 
     /// <returns>逆行列</returns>
     Matrix4x4 Inverse() const;

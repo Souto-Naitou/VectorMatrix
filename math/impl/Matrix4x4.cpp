@@ -1,3 +1,4 @@
+#include "Matrix4x4.h"
 // Copyright © 2024 Souto-Naitou. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
@@ -195,6 +196,23 @@ Matrix4x4 Matrix4x4::AffineMatrix(const Vector3& _scale, const Vector3& _rotate,
     return result;
 }
 
+Matrix4x4 Matrix4x4::AffineMatrix(const Vector3& _scale, const Quaternion& _rotate, const Vector3& _translate)
+{
+    Matrix4x4 result{};
+    Matrix4x4 rotateMatrix = RotateMatrix(_rotate);
+    for (int i = 0; i < 3; i++)
+    {
+        result.m[0][i] = _scale.x * rotateMatrix.m[0][i];
+        result.m[1][i] = _scale.y * rotateMatrix.m[1][i];
+        result.m[2][i] = _scale.z * rotateMatrix.m[2][i];
+    }
+    result.m[3][0] = _translate.x;
+    result.m[3][1] = _translate.y;
+    result.m[3][2] = _translate.z;
+    result.m[3][3] = 1.0f;
+    return result;
+}
+
 Matrix4x4 Matrix4x4::PerspectiveFovMatrix(float _fovY, float _aspectRatio, float _nearClip, float _farClip)
 {
     Matrix4x4 result{};
@@ -270,6 +288,11 @@ Matrix4x4 Matrix4x4::TranslateMatrix(const Vector3& _translate)
     result.m[3][2] += _translate.z;
 
     return result;
+}
+
+Vector3 Matrix4x4::GetTranslation() const
+{
+    return Vector3(m[3][0], m[3][1], m[3][2]);
 }
 
 Matrix4x4 Matrix4x4::Inverse() const
