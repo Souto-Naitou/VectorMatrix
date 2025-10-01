@@ -5,7 +5,7 @@
 
 #include "Vector3.h"
 #include "Vector2.h"
-#include "Color.h"
+
 
 /// <summary>
 /// 4th Dimension Vector
@@ -70,12 +70,6 @@ public:
         y = _vec2.y;
         z = 0.0f;
         w = 0.0f;
-        return;
-    }
-
-    Vector4(const Color& _color)
-    {
-        *this = _color.Vec4();
         return;
     }
 
