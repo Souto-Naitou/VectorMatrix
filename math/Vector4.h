@@ -19,7 +19,7 @@ public:
 
     Vector4() : x(), y(), z(), w() {};
 
-    Vector4(const float& _x, const float& _y, const float& _z, const float& _w)
+    constexpr Vector4(const float& _x, const float& _y, const float& _z, const float& _w)
     {
         x = _x;
         y = _y;
@@ -28,7 +28,7 @@ public:
         return;
     }
 
-    Vector4(const float& _x, const float& _y, const float& _z)
+    constexpr Vector4(const float& _x, const float& _y, const float& _z)
     {
         x = _x;
         y = _y;
@@ -37,7 +37,7 @@ public:
         return;
     }
 
-    Vector4(const float& _x, const float& _y)
+    constexpr Vector4(const float& _x, const float& _y)
     {
         x = _x;
         y = _y;
@@ -46,7 +46,7 @@ public:
         return;
     }
 
-    Vector4(const float& _x)
+    constexpr Vector4(const float& _x)
     {
         x = _x;
         y = 0.0f;
