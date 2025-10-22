@@ -22,16 +22,16 @@ public:
     RGB() = default;
     RGB(uint8_t _r, uint8_t _g, uint8_t _b) : r_(_r), g_(_g), b_(_b) {}
     RGB(const RGB& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_) {}
-    RGB(RGB&& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_) {}
+    RGB(RGB&& _other) noexcept : r_(_other.r_), g_(_other.g_), b_(_other.b_) {}
 
     uint8_t& r() { return r_; }
     uint8_t& g() { return g_; }
     uint8_t& b() { return b_; }
 
     RGB& operator=(const RGB& other) { r_ = other.r_; g_ = other.g_; b_ = other.b_; return *this; }
-    RGB& operator=(RGB&& other) { r_ = other.r_; g_ = other.g_; b_ = other.b_; return *this; }
+    RGB& operator=(RGB&& other) noexcept { r_ = other.r_; g_ = other.g_; b_ = other.b_; return *this; }
     RGB& operator=(const RGBA& other);
-    RGB& operator=(RGBA&& other);
+    RGB& operator=(RGBA&& other) noexcept;
 
     RGB& operator=(const Vector3& other)
     {
