@@ -15,6 +15,7 @@ public:
 };
 
 class RGBA;
+class HSV;
 
 class RGB : public IColor
 {
@@ -93,6 +94,13 @@ public:
     RGBA(const RGBA& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_), a_(_other.a_) {}
     RGBA(uint32_t _rgba) : r_((_rgba >> 24) & 0xFF), g_((_rgba >> 16) & 0xFF), b_((_rgba >> 8) & 0xFF), a_(_rgba & 0xFF) {}
     RGBA(RGBA&& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_), a_(_other.a_) {}
+    RGBA(const Vector4& other)
+    {
+        r_ = static_cast<uint8_t>(other.x * 255);
+        g_ = static_cast<uint8_t>(other.y * 255);
+        b_ = static_cast<uint8_t>(other.z * 255);
+        a_ = static_cast<uint8_t>(other.w * 255);
+    }
 
     RGBA& operator=(const RGBA& other)
     {
@@ -134,6 +142,8 @@ public:
 
     Vector4 to_Vector4() const { return Vector4(r_ / 255.0f, g_ / 255.0f, b_ / 255.0f, a_ / 255.0f); }
     Vector3 to_Vector3() const { return Vector3(r_ / 255.0f, g_ / 255.0f, b_ / 255.0f); }
+
+    HSV to_HSV() const;
 
 
 private:

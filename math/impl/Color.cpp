@@ -155,3 +155,43 @@ RGB HSV::to_RGB() const
 
     return RGB{ static_cast<uint8_t>(r * 255), static_cast<uint8_t>(g * 255), static_cast<uint8_t>(b * 255) };
 }
+
+HSV RGBA::to_HSV() const
+{
+    float r = r_ / 255.0f;
+    float g = g_ / 255.0f;
+    float b = b_ / 255.0f;
+    float max = std::max({ r, g, b });
+    float min = std::min({ r, g, b });
+    float h, s, v = max;
+    float delta = max - min;
+    if (max == 0.0f)
+    {
+        s = 0.0f;
+    }
+    else
+    {
+        s = delta / max;
+    }
+    if (delta == 0.0f)
+    {
+        h = 0.0f; // achromatic
+    }
+    else
+    {
+        if (max == r)
+        {
+            h = (g - b) / delta + (g < b ? 6.0f : 0.0f);
+        }
+        else if (max == g)
+        {
+            h = (b - r) / delta + 2.0f;
+        }
+        else // max == b
+        {
+            h = (r - g) / delta + 4.0f;
+        }
+        h /= 6.0f;
+    }
+    return HSV{ h * 360.0f, s * 100.0f, v * 100.0f };
+}
