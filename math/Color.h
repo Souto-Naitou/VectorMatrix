@@ -93,7 +93,7 @@ public:
     RGBA(uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a) : r_(_r), g_(_g), b_(_b), a_(_a) {}
     RGBA(const RGBA& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_), a_(_other.a_) {}
     RGBA(uint32_t _rgba) : r_((_rgba >> 24) & 0xFF), g_((_rgba >> 16) & 0xFF), b_((_rgba >> 8) & 0xFF), a_(_rgba & 0xFF) {}
-    RGBA(RGBA&& _other) : r_(_other.r_), g_(_other.g_), b_(_other.b_), a_(_other.a_) {}
+    RGBA(RGBA&& _other) noexcept : r_(_other.r_), g_(_other.g_), b_(_other.b_), a_(_other.a_) {}
     RGBA(const Vector4& other)
     {
         r_ = static_cast<uint8_t>(other.x * 255);
@@ -111,7 +111,7 @@ public:
         return *this;
     }
 
-    RGBA& operator=(RGBA&& other)
+    RGBA& operator=(RGBA&& other) noexcept
     {
         r_ = other.r_;
         g_ = other.g_;
