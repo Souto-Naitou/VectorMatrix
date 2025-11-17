@@ -140,12 +140,12 @@ Matrix4x4 Matrix4x4::DirectionToDirectionMatrix(const Vector3& _from, const Vect
     Vector3 n = _from.Cross(_to);
     if (n.LengthWithoutRoot() != 0.0f)
     {
-        n = n.Normalize();
+        n = n.Normalized();
     }
     else
     {
-        if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.y, -_from.x, 0.0f).Normalize();
-        else if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.z, 0.0f, -_from.x).Normalize();
+        if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.y, -_from.x, 0.0f).Normalized();
+        else if (_from.x != 0.0f || _from.z != 0.0f) n = Vector3(_from.z, 0.0f, -_from.x).Normalized();
     }
 
 

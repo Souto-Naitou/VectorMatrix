@@ -40,7 +40,7 @@ float Vector3::LengthWithoutRoot() const
     return x * x + y * y + z * z;
 }
 
-Vector3 Vector3::Normalize() const
+Vector3 Vector3::Normalized() const
 {
     float length = this->Length();
     if (length == 0.0f) return {};
@@ -69,7 +69,7 @@ void Vector3::Theta(float _azimuth, float _elevation, const Vector3& _origin) co
 
 float Vector3::Projection(const Vector3& _a) const
 {
-    Vector3 axis = _a.Normalize();
+    Vector3 axis = _a.Normalized();
     return (*this).Dot(axis);
 }
 

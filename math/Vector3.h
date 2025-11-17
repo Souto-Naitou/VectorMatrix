@@ -70,7 +70,7 @@ public:
     Vector3 Cross(const Vector3& _v)                const;
     float   Length()                                const;
     float   LengthWithoutRoot()                     const;
-    Vector3 Normalize()                             const;
+    Vector3 Normalized()                             const;
     float   Distance(const Vector3& _destination)   const;
     float   Projection(const Vector3& _a)           const;
     void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
