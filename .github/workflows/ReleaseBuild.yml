@@ -1,8 +1,5 @@
 name : ReleaseBuild
-on:
-  push:
-    branches:
-      - master
+on: [pull_request]
 env:
   # リポジトリのルートディレクトリを起点としたソリューションファイルのパス
   SOLUTION_FILE_PATH: Project/VecMat.sln
