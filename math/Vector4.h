@@ -46,7 +46,7 @@ public:
         return;
     }
 
-    constexpr Vector4(const float& _x)
+    constexpr explicit Vector4(const float& _x) 
     {
         x = _x;
         y = 0.0f;
