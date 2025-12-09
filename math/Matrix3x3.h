@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 /// 前方宣言
 class Vector2;
@@ -25,22 +25,22 @@ public:
     /// =====================
     
     static Matrix3x3 Identity();
-    static Matrix3x3 RotateMatrix(float _radian);
-    static Matrix3x3 ScaleMatrix(const Vector2& _scale);
-    static Matrix3x3 TranslateMatrix(const Vector2& _translate);
+    static Matrix3x3 RotateMatrix(float radian);
+    static Matrix3x3 ScaleMatrix(const Vector2& scale);
+    static Matrix3x3 TranslateMatrix(const Vector2& translate);
 
     /// ====================
     /// Operator
     /// ====================
     
-    Matrix3x3& operator +=(const Matrix3x3& _rm);
-    Matrix3x3& operator -=(const Matrix3x3& _rm);
-    Matrix3x3& operator *=(const Matrix3x3& _rm);
+    Matrix3x3& operator +=(const Matrix3x3& rm);
+    Matrix3x3& operator -=(const Matrix3x3& rm);
+    Matrix3x3& operator *=(const Matrix3x3& rm);
 
-    Matrix3x3 operator +(const Matrix3x3& _rm) const;
-    Matrix3x3 operator -(const Matrix3x3& _rm) const;
-    Matrix3x3 operator *(const Matrix3x3& _rm) const;
+    Matrix3x3 operator +(const Matrix3x3& rm) const;
+    Matrix3x3 operator -(const Matrix3x3& rm) const;
+    Matrix3x3 operator *(const Matrix3x3& rm) const;
 
-    Matrix3x3& operator *=(float _f);
-    Matrix3x3 operator *(float _f) const;
+    Matrix3x3& operator *=(float f);
+    Matrix3x3 operator *(float f) const;
 };

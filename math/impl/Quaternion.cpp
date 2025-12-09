@@ -13,9 +13,9 @@ Quaternion Quaternion::Identity()
 }
 
 
-Quaternion Quaternion::Conjugate(const Quaternion& _q)
+Quaternion Quaternion::Conjugate(const Quaternion& q)
 {
-    return Quaternion({ -_q.x, -_q.y, -_q.z, _q.w });
+    return Quaternion({ -q.x, -q.y, -q.z, q.w });
 }
 
 float Quaternion::Norm() const
@@ -34,49 +34,49 @@ Quaternion Quaternion::Inversed() const
     return Conjugate(*this) / (x * x + y * y + z * z + w * w);
 }
 
-Quaternion Quaternion::RotateAxisAngleQuaternion(const Vector3& _axis, float _angle)
+Quaternion Quaternion::RotateAxisAngleQuaternion(const Vector3& axis, float angle)
 {
-    float halfAngle = _angle * 0.5f;
+    float halfAngle = angle * 0.5f;
     float cosHalfAngle = std::cos(halfAngle);
     float sinHalfAngle = std::sin(halfAngle);
 
     Quaternion result = {};
-    result.x = sinHalfAngle * _axis.x;
-    result.y = sinHalfAngle * _axis.y;
-    result.z = sinHalfAngle * _axis.z;
+    result.x = sinHalfAngle * axis.x;
+    result.y = sinHalfAngle * axis.y;
+    result.z = sinHalfAngle * axis.z;
     result.w = cosHalfAngle;
 
     return result;
 }
 
-Quaternion Quaternion::operator+(const Quaternion& _rq) const
+Quaternion Quaternion::operator+(const Quaternion& rq) const
 {
-    return Quaternion({ x + _rq.x, y + _rq.y, z + _rq.z, w + _rq.w });
+    return Quaternion({ x + rq.x, y + rq.y, z + rq.z, w + rq.w });
 }
 
-Quaternion Quaternion::operator-(const Quaternion& _rq) const
+Quaternion Quaternion::operator-(const Quaternion& rq) const
 {
-    return Quaternion({ x - _rq.x, y - _rq.y, z - _rq.z, w - _rq.w });
+    return Quaternion({ x - rq.x, y - rq.y, z - rq.z, w - rq.w });
 }
 
-Quaternion Quaternion::operator*(const Quaternion& _rq) const
+Quaternion Quaternion::operator*(const Quaternion& rq) const
 {
     Quaternion result = {};
-    result.x = w * _rq.x + x * _rq.w + y * _rq.z - z * _rq.y;
-    result.y = w * _rq.y + y * _rq.w + z * _rq.x - x * _rq.z;
-    result.z = w * _rq.z + z * _rq.w + x * _rq.y - y * _rq.x;
-    result.w = w * _rq.w - x * _rq.x - y * _rq.y - z * _rq.z;
+    result.x = w * rq.x + x * rq.w + y * rq.z - z * rq.y;
+    result.y = w * rq.y + y * rq.w + z * rq.x - x * rq.z;
+    result.z = w * rq.z + z * rq.w + x * rq.y - y * rq.x;
+    result.w = w * rq.w - x * rq.x - y * rq.y - z * rq.z;
 
     return result;
 }
 
-Quaternion Quaternion::operator/(float _f) const
+Quaternion Quaternion::operator/(float f) const
 {
     Quaternion result = {};
-    result.x = x / _f;
-    result.y = y / _f;
-    result.z = z / _f;
-    result.w = w / _f;
+    result.x = x / f;
+    result.y = y / f;
+    result.z = z / f;
+    result.w = w / f;
 
     return result;
 }
@@ -86,33 +86,33 @@ Quaternion Quaternion::operator-() const
     return Quaternion({ -x, -y, -z, -w });
 }
 
-Quaternion Quaternion::operator*(float _f) const
+Quaternion Quaternion::operator*(float f) const
 {
-    return Quaternion({ x * _f, y * _f, z * _f, w * _f });
+    return Quaternion({ x * f, y * f, z * f, w * f });
 }
 
-Vector3 FMath::RotateVector(const Vector3& _v, const Quaternion& _q)
+Vector3 FMath::RotateVector(const Vector3& v, const Quaternion& q)
 {
     Vector3 result = {};
 
-    Quaternion q = _q * Quaternion({ _v.x, _v.y, _v.z, 0.0f }) * Quaternion::Conjugate(_q);
+    Quaternion quat = q * Quaternion({ v.x, v.y, v.z, 0.0f }) * Quaternion::Conjugate(q);
 
-    result.x = q.x;
-    result.y = q.y;
-    result.z = q.z;
+    result.x = quat.x;
+    result.y = quat.y;
+    result.z = quat.z;
 
     return result;
 }
 
-Quaternion Quaternion::Slerp(const Quaternion& _begin, const Quaternion& _end, float _t)
+Quaternion Quaternion::Slerp(const Quaternion& begin, const Quaternion& end, float t)
 {
-    float dot = _begin.x * _end.x + _begin.y * _end.y + _begin.z * _end.z + _begin.w * _end.w;
+    float dot = begin.x * end.x + begin.y * end.y + begin.z * end.z + begin.w * end.w;
 
-    Quaternion begin = _begin;
+    Quaternion beginTemp = begin;
 
     if (dot < 0.0f)
     {
-        begin = -_begin;
+        beginTemp = -begin;
         dot = -dot;
     }
 
@@ -126,16 +126,16 @@ Quaternion Quaternion::Slerp(const Quaternion& _begin, const Quaternion& _end, f
 
     if (sinTheta < 1e-6f) // 0に近い場合は線形補間
     {
-        return begin * (1.0f - _t) + _end * _t;
+        return beginTemp * (1.0f - t) + end * t;
     }
 
-    float scale0 = std::sin((1.0f - _t) * theta) / sinTheta;
-    float scale1 = std::sin(_t * theta) / sinTheta;
+    float scale0 = std::sin((1.0f - t) * theta) / sinTheta;
+    float scale1 = std::sin(t * theta) / sinTheta;
 
     if (std::isnan(scale0) || std::isnan(scale1))
     {
         assert(0);
     }
 
-    return begin * scale0 + _end * scale1;
+    return beginTemp * scale0 + end * scale1;
 }

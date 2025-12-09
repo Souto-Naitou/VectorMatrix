@@ -9,29 +9,29 @@
 /// calcuration
 /// ===========
 
-float Vector2::Dot(const Vector2& _v) const
+float Vector2::Dot(const Vector2& v) const
 {
-    return x * _v.x + y * _v.y;
+    return this->x * v.x + this->y * v.y;
 }
 
-float Vector2::Cross(const Vector2& _v) const
+float Vector2::Cross(const Vector2& v) const
 {
-    return x * _v.y - y * _v.x;
+    return this->x * v.y - this->y * v.x;
 }
 
 float Vector2::Length() const
 {
-    return std::sqrtf(x * x + y * y);
+    return std::sqrtf(this->x * this->x + this->y * this->y);
 }
 
 float Vector2::LengthWithoutRoot() const
 {
-    return x * x + y * y;
+    return this->x * this->x + this->y * this->y;
 }
 
 Vector2 Vector2::Perpendicular() const
 {
-    return Vector2(-y, x);
+    return Vector2(-y, this->x);
 }
 
 Vector2 Vector2::Normalize() const
@@ -39,40 +39,40 @@ Vector2 Vector2::Normalize() const
     float length = this->Length();
     if (length == 0) return {};
     return Vector2(
-        x / length,
-        y / length
+        this->x / length,
+        this->y / length
     );
 }
 
-float Vector2::Projection(const Vector2& _a) const
+float Vector2::Projection(const Vector2& a) const
 {
-    Vector2 axis = _a.Normalize();
+    Vector2 axis = a.Normalize();
     return (*this).Dot(axis);
 }
 
-void Vector2::Lerp(const Vector2& _begin, const Vector2& _end, float _t)
+void Vector2::Lerp(const Vector2& begin, const Vector2& end, float t)
 {
-    x = (1.0f - _t) * _begin.x + _t * _end.x;
-    y = (1.0f - _t) * _begin.y + _t * _end.y;
+    this->x = (1.0f - t) * begin.x + t * end.x;
+    this->y = (1.0f - t) * begin.y + t * end.y;
     return;
 }
 
-float Vector2::Distance(const Vector2& _destination) const
+float Vector2::Distance(const Vector2& destination) const
 {
-    return Vector2(_destination - *this).Length();
+    return Vector2(destination - *this).Length();
 }
 
-float Vector2::Theta(const Vector2& _origin) const
+float Vector2::Theta(const Vector2& origin) const
 {
-    Vector2 distance = *this - _origin;
+    Vector2 distance = *this - origin;
     return std::atan2(distance.y, distance.x);
 }
 
-Vector2 Vector2::Rotated(float _theta) const
+Vector2 Vector2::Rotated(float theta) const
 {
     Vector2 result = {};
-    result.x = x * std::cosf(_theta) - y * std::sinf(_theta);
-    result.y = x * std::sinf(_theta) + y * std::cosf(_theta);
+    result.x = this->x * std::cosf(theta) - this->y * std::sinf(theta);
+    result.y = this->x * std::sinf(theta) + this->y * std::cosf(theta);
     return result;
 }
 
@@ -85,33 +85,33 @@ Vector2 Vector2::operator-() const
 /// float
 /// =====
 
-Vector2 Vector2::operator*(float _f) const
+Vector2 Vector2::operator*(float f) const
 {
     Vector2 result{};
-    result.x = x * _f;
-    result.y = y * _f;
+    result.x = this->x * f;
+    result.y = this->y * f;
     return result;
 }
 
-Vector2 Vector2::operator/(float _f) const
+Vector2 Vector2::operator/(float f) const
 {
     Vector2 result{};
-    result.x = x / _f;
-    result.y = y / _f;
+    result.x = this->x / f;
+    result.y = this->y / f;
     return result;
 }
 
-Vector2& Vector2::operator*=(float _f)
+Vector2& Vector2::operator*=(float f)
 {
-    x *= _f;
-    y *= _f;
+    this->x *= f;
+    this->y *= f;
     return *this;
 }
 
-Vector2& Vector2::operator/=(float _f)
+Vector2& Vector2::operator/=(float f)
 {
-    x /= _f;
-    y /= _f;
+    this->x /= f;
+    this->y /= f;
     return *this;
 }
 
@@ -119,66 +119,66 @@ Vector2& Vector2::operator/=(float _f)
 /// Vector2
 /// =======
 
-Vector2 Vector2::operator+(const Vector2& _v) const
+Vector2 Vector2::operator+(const Vector2& v) const
 {
     Vector2 result{};
-    result.x = x + _v.x;
-    result.y = y + _v.y;
+    result.x = this->x + v.x;
+    result.y = this->y + v.y;
     return result;
 }
 
-Vector2 Vector2::operator-(const Vector2& _v) const
+Vector2 Vector2::operator-(const Vector2& v) const
 {
     Vector2 result{};
-    result.x = x - _v.x;
-    result.y = y - _v.y;
+    result.x = this->x - v.x;
+    result.y = this->y - v.y;
     return result;
 }
 
-Vector2 Vector2::operator*(const Vector2& _v) const
+Vector2 Vector2::operator*(const Vector2& v) const
 {
     Vector2 result{};
-    result.x = x * _v.x;
-    result.y = y * _v.y;
+    result.x = this->x * v.x;
+    result.y = this->y * v.y;
     return result;
 }
 
-Vector2& Vector2::operator+=(const Vector2& _v)
+Vector2& Vector2::operator+=(const Vector2& v)
 {
-    x += _v.x;
-    y += _v.y;
+    this->x += v.x;
+    this->y += v.y;
     return *this;
 }
 
-Vector2& Vector2::operator-=(const Vector2& _v)
+Vector2& Vector2::operator-=(const Vector2& v)
 {
-    x -= _v.x;
-    y -= _v.y;
+    this->x -= v.x;
+    this->y -= v.y;
     return *this;
 }
 
-Vector2& Vector2::operator*=(const Vector2& _v)
+Vector2& Vector2::operator*=(const Vector2& v)
 {
-    x *= _v.x;
-    y *= _v.y;
+    this->x *= v.x;
+    this->y *= v.y;
     return *this;
 }
 
-bool Vector2::operator==(const Vector2& _v) const
+bool Vector2::operator==(const Vector2& v) const
 {
-    return x == _v.x && y == _v.y;
+    return this->x == v.x && this->y == v.y;
 }
 
 /// =========
 /// overscope
 /// =========
 
-Vector2 operator*(const float _f, const Vector2& _v)
+Vector2 operator*(const float f, const Vector2& v)
 {
-    return Vector2(_v.x * _f, _v.y * _f);
+    return Vector2(v.x * f, v.y * f);
 }
 
-Vector2 operator/(const float _f, const Vector2& _v)
+Vector2 operator/(const float f, const Vector2& v)
 {
-    return Vector2(_v.x / _f, _v.y / _f);
+    return Vector2(v.x / f, v.y / f);
 }

@@ -18,43 +18,43 @@ public:
 
     Vector3() : x(), y(), z() {};
 
-    Vector3(const float& _x, const float& _y, const float& _z)
+    Vector3(const float& x, const float& y, const float& z)
     {
-        x = _x;
-        y = _y;
-        z = _z;
+        this->x = x;
+        this->y = y;
+        this->z = z;
         return;
     }
 
-    Vector3(const float& _x, const float& _y)
+    Vector3(const float& x, const float& y)
     {
-        x = _x;
-        y = _y;
-        z = 0.0f;
+        this->x = x;
+        this->y = y;
+        this->z = 0.0f;
         return;
     }
 
-    Vector3(const float& _x)
+    Vector3(const float& x)
     {
-        x = _x;
-        y = 0.0f;
-        z = 0.0f;
+        this->x = x;
+        this->y = 0.0f;
+        this->z = 0.0f;
         return;
     }
 
-    Vector3(const Vector2& _vec2, float _f)
+    Vector3(const Vector2& vec2, float f)
     {
-        x = _vec2.x;
-        y = _vec2.y;
-        z = _f;
+        this->x = vec2.x;
+        this->y = vec2.y;
+        this->z = f;
         return;
     }
 
-    Vector3(const Vector2& _vec2)
+    Vector3(const Vector2& vec2)
     {
-        x = _vec2.x;
-        y = _vec2.y;
-        z = 0.0f;
+        this->x = vec2.x;
+        this->y = vec2.y;
+        this->z = 0.0f;
         return;
     }
 
@@ -66,15 +66,15 @@ public:
     /// calcuration
     /// ===========
 
-    float   Dot(const Vector3& _v)                  const;
-    Vector3 Cross(const Vector3& _v)                const;
+    float   Dot(const Vector3& v)                   const;
+    Vector3 Cross(const Vector3& v)                 const;
     float   Length()                                const;
     float   LengthWithoutRoot()                     const;
-    Vector3 Normalized()                             const;
-    float   Distance(const Vector3& _destination)   const;
-    float   Projection(const Vector3& _a)           const;
-    void    Lerp(const Vector3& _begin, const Vector3& _end, float _t);
-    void    Theta(float _azimuth, float _elevation, const Vector3& _origin = { 0.0f, 0.0f }) const;
+    Vector3 Normalized()                            const;
+    float   Distance(const Vector3& destination)    const;
+    float   Projection(const Vector3& a)            const;
+    void    Lerp(const Vector3& begin, const Vector3& end, float t);
+    void    Theta(float azimuth, float elevation, const Vector3& origin = { 0.0f, 0.0f }) const;
 
     /// ==========
     /// minus sign
@@ -86,13 +86,13 @@ public:
     /// Vector3
     /// =======
 
-    Vector3& operator+=(const Vector3& _rv);
-    Vector3& operator-=(const Vector3& _rv);
-    Vector3& operator*=(const Vector3& _rv);
+    Vector3& operator+=(const Vector3& rv);
+    Vector3& operator-=(const Vector3& rv);
+    Vector3& operator*=(const Vector3& rv);
 
-    Vector3 operator+(const Vector3& _v) const;
-    Vector3 operator-(const Vector3& _v) const;
-    Vector3 operator*(const Vector3& _v) const;
+    Vector3 operator+(const Vector3& v) const;
+    Vector3 operator-(const Vector3& v) const;
+    Vector3 operator*(const Vector3& v) const;
 
     /// =====
     /// float
@@ -100,36 +100,36 @@ public:
 
     Vector3 operator+(float) = delete;
     Vector3 operator-(float) = delete;
-    Vector3 operator*(float _f) const;
-    Vector3 operator/(float _f) const;
+    Vector3 operator*(float f) const;
+    Vector3 operator/(float f) const;
     Vector3& operator+=(float) = delete;
     Vector3& operator-=(float) = delete;
-    Vector3& operator*=(float _f);
-    Vector3& operator/=(float _f);
+    Vector3& operator*=(float f);
+    Vector3& operator/=(float f);
 
     /// =======
     /// Vector2
     /// =======
 
-    Vector3& operator+=(const Vector2& _rv);
-    Vector3& operator-=(const Vector2& _rv);
-    Vector3& operator*=(const Vector2& _rv);
+    Vector3& operator+=(const Vector2& rv);
+    Vector3& operator-=(const Vector2& rv);
+    Vector3& operator*=(const Vector2& rv);
 
-    Vector3 operator+(const Vector2& _v) const;
-    Vector3 operator-(const Vector2& _v) const;
-    Vector3 operator*(const Vector2& _v) const;
+    Vector3 operator+(const Vector2& v) const;
+    Vector3 operator-(const Vector2& v) const;
+    Vector3 operator*(const Vector2& v) const;
 };
 
-Vector3 operator*(const float _f, const Vector3& _v);
-Vector3 operator/(const float _f, const Vector3& _v);
+Vector3 operator*(const float f, const Vector3& v);
+Vector3 operator/(const float f, const Vector3& v);
 
 namespace FMath
 {
-    Vector3 Add(const Vector3& _v1, const Vector3& _v2);
-    Vector3 Subtract(const Vector3& _v1, const Vector3& _v2);
-    Vector3 Multiply(float _scalar, const Vector3& _v);
-    float   Dot(const Vector3& _v1, const Vector3& _v2);
-    float   Length(const Vector3& _v);
-    Vector3 Normalize(const Vector3& _v);
-    Vector3 Transform(const Vector3& _vector, const Matrix4x4& _matrix);
+    Vector3 Add(const Vector3& v1, const Vector3& v2);
+    Vector3 Subtract(const Vector3& v1, const Vector3& v2);
+    Vector3 Multiply(float scalar, const Vector3& v);
+    float   Dot(const Vector3& v1, const Vector3& v2);
+    float   Length(const Vector3& v);
+    Vector3 Normalize(const Vector3& v);
+    Vector3 Transform(const Vector3& vector, const Matrix4x4& matrix);
 }
