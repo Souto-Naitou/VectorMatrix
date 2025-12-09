@@ -158,11 +158,11 @@ RGB HSV::to_RGB() const
 
 HSV RGBA::to_HSV() const
 {
-    float r = r / 255.0f;
-    float g = g / 255.0f;
-    float b = b / 255.0f;
-    float max = std::max({ r, g, b });
-    float min = std::min({ r, g, b });
+    float t_r = r / 255.0f;
+    float t_g = g / 255.0f;
+    float t_b = b / 255.0f;
+    float max = std::max({ t_r, t_g, t_b });
+    float min = std::min({ t_r, t_g, t_b });
     float h, s, v = max;
     float delta = max - min;
     if (max == 0.0f)
@@ -179,17 +179,17 @@ HSV RGBA::to_HSV() const
     }
     else
     {
-        if (max == r)
+        if (max == t_r)
         {
-            h = (g - b) / delta + (g < b ? 6.0f : 0.0f);
+            h = (t_g - t_b) / delta + (t_g < t_b ? 6.0f : 0.0f);
         }
-        else if (max == g)
+        else if (max == t_g)
         {
-            h = (b - r) / delta + 2.0f;
+            h = (t_b - t_r) / delta + 2.0f;
         }
-        else // max == b
+        else // max == t_b
         {
-            h = (r - g) / delta + 4.0f;
+            h = (t_r - t_g) / delta + 4.0f;
         }
         h /= 6.0f;
     }
