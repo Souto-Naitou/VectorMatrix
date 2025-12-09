@@ -14,46 +14,46 @@ std::vector<Vector2> Rect2::GetVertices()
     return result;
 }
 
-void Rect2::MakeSquare(int _size, bool _centerMode)
+void Rect2::MakeSquare(int size, bool centerMode)
 {
-    sizetemp_ = _size;
-    if (_centerMode)
+    sizetemp_ = size;
+    if (centerMode)
     {
-        x1 = y1 = -_size / 2;
-        x2 = y2 = _size / 2;
+        x1 = y1 = -size / 2;
+        x2 = y2 = size / 2;
     }
     else
     {
-        x2 = _size;
-        y2 = _size;
+        x2 = size;
+        y2 = size;
     }
     return;
 }
 
-void Rect2::MakeRectangle(int _width, int _height, bool _centerMode)
+void Rect2::MakeRectangle(int width, int height, bool centerMode)
 {
-    if (_centerMode)
+    if (centerMode)
     {
-        x1 = -_width / 2;
-        y1 = -_height / 2;
-        x2 = _width / 2;
-        y2 = _height / 2;
+        x1 = -width / 2;
+        y1 = -height / 2;
+        x2 = width / 2;
+        y2 = height / 2;
     }
     else
     {
-        x2 = _width;
-        y2 = _height;
+        x2 = width;
+        y2 = height;
     }
     return;
 }
 
-Rect2 Rect2::operator+(const Vector2& _pos)
+Rect2 Rect2::operator+(const Vector2& pos)
 {
     Rect2 result;
-    result.x1 = x1 + static_cast<int>(_pos.x);
-    result.y1 = y1 + static_cast<int>(_pos.y);
-    result.x2 = x2 + static_cast<int>(_pos.x);
-    result.y2 = y2 + static_cast<int>(_pos.y);
+    result.x1 = x1 + static_cast<int>(pos.x);
+    result.y1 = y1 + static_cast<int>(pos.y);
+    result.x2 = x2 + static_cast<int>(pos.x);
+    result.y2 = y2 + static_cast<int>(pos.y);
     result.sizetemp_ = sizetemp_;
     return result;
 }

@@ -4,16 +4,9 @@ template <class T>
 class Range
 {
 public:
-    Range() : start_(), end_() {}
-    explicit Range(T _start, T _end) : start_(_start), end_(_end) {}
+    Range() : start(), end() {}
+    explicit Range(T start, T end) : start(start), end(end) {}
 
-    T& start() { return start_; }
-    T& end() { return end_; }
-    const T& start() const { return start_; }
-    const T& end() const { return end_; }
-
-
-private:
-    T start_;
-    T end_;
+    T start;
+    T end;
 };

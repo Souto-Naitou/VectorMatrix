@@ -19,66 +19,66 @@ public:
 
     Vector4() : x(), y(), z(), w() {};
 
-    constexpr Vector4(const float& _x, const float& _y, const float& _z, const float& _w)
+    constexpr Vector4(const float& x, const float& y, const float& z, const float& w)
     {
-        x = _x;
-        y = _y;
-        z = _z;
-        w = _w;
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        this->w = w;
         return;
     }
 
-    constexpr Vector4(const float& _x, const float& _y, const float& _z)
+    constexpr Vector4(const float& x, const float& y, const float& z)
     {
-        x = _x;
-        y = _y;
-        z = _z;
-        w = 0.0f;
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        this->w = 0.0f;
         return;
     }
 
-    constexpr Vector4(const float& _x, const float& _y)
+    constexpr Vector4(const float& x, const float& y)
     {
-        x = _x;
-        y = _y;
-        z = 0.0f;
-        w = 0.0f;
+        this->x = x;
+        this->y = y;
+        this->z = 0.0f;
+        this->w = 0.0f;
         return;
     }
 
-    constexpr Vector4(const float& _x)
+    constexpr explicit Vector4(const float& x) 
     {
-        x = _x;
-        y = 0.0f;
-        z = 0.0f;
-        w = 0.0f;
+        this->x = x;
+        this->y = 0.0f;
+        this->z = 0.0f;
+        this->w = 0.0f;
         return;
     }
 
-    Vector4(const Vector3& _vec3)
+    Vector4(const Vector3& vec3)
     {
-        x = _vec3.x;
-        y = _vec3.y;
-        z = _vec3.z;
-        w = 0.0f;
+        this->x = vec3.x;
+        this->y = vec3.y;
+        this->z = vec3.z;
+        this->w = 0.0f;
         return;
     }
 
-    Vector4(const Vector2& _vec2)
+    Vector4(const Vector2& vec2)
     {
-        x = _vec2.x;
-        y = _vec2.y;
-        z = 0.0f;
-        w = 0.0f;
+        this->x = vec2.x;
+        this->y = vec2.y;
+        this->z = 0.0f;
+        this->w = 0.0f;
         return;
     }
 
-    Vector4(const Vector3& _vec3, const float& _w)
+    Vector4(const Vector3& vec3, const float& w)
     {
-        x = _vec3.x;
-        y = _vec3.y;
-        z = _vec3.z;
-        w = _w;
+        this->x = vec3.x;
+        this->y = vec3.y;
+        this->z = vec3.z;
+        this->w = w;
         return;
     }
 
@@ -87,7 +87,7 @@ public:
     Vector2 xy() const { return Vector2(x, y); }
 
 
-    void    Lerp(const Vector4& _begin, const Vector4& _end, float _t);
+    void    Lerp(const Vector4& begin, const Vector4& end, float t);
 
 
     /// マイナス符号
@@ -97,13 +97,13 @@ public:
     /// Vector4
     /// =======
 
-    Vector4& operator+=(const Vector4& _rv);
-    Vector4& operator-=(const Vector4& _rv);
-    Vector4& operator*=(const Vector4& _rv);
+    Vector4& operator+=(const Vector4& rv);
+    Vector4& operator-=(const Vector4& rv);
+    Vector4& operator*=(const Vector4& rv);
 
-    Vector4 operator+(const Vector4& _v);
-    Vector4 operator-(const Vector4& _v);
-    Vector4 operator*(const Vector4& _v);
+    Vector4 operator+(const Vector4& v);
+    Vector4 operator-(const Vector4& v);
+    Vector4 operator*(const Vector4& v);
 
     /// =====
     /// float
@@ -111,35 +111,35 @@ public:
 
     Vector4 operator+(float) = delete;
     Vector4 operator-(float) = delete;
-    Vector4 operator*(float _f);
-    Vector4 operator/(float _f);
+    Vector4 operator*(float f);
+    Vector4 operator/(float f);
     Vector4& operator+=(float) = delete;
     Vector4& operator-=(float) = delete;
-    Vector4& operator*=(float _f);
-    Vector4& operator/=(float _f);
+    Vector4& operator*=(float f);
+    Vector4& operator/=(float f);
 
     /// =======
     /// Vector2
     /// =======
 
-    Vector4& operator+=(const Vector2& _rv);
-    Vector4& operator-=(const Vector2& _rv);
-    Vector4& operator*=(const Vector2& _rv);
+    Vector4& operator+=(const Vector2& rv);
+    Vector4& operator-=(const Vector2& rv);
+    Vector4& operator*=(const Vector2& rv);
 
-    Vector4 operator+(const Vector2& _v);
-    Vector4 operator-(const Vector2& _v);
-    Vector4 operator*(const Vector2& _v);
+    Vector4 operator+(const Vector2& v);
+    Vector4 operator-(const Vector2& v);
+    Vector4 operator*(const Vector2& v);
 
     /// =======
     /// Vector3
     /// =======
 
-    Vector4& operator+=(const Vector3& _rv);
-    Vector4& operator-=(const Vector3& _rv);
-    Vector4& operator*=(const Vector3& _rv);
+    Vector4& operator+=(const Vector3& rv);
+    Vector4& operator-=(const Vector3& rv);
+    Vector4& operator*=(const Vector3& rv);
 
-    Vector4 operator+(const Vector3& _v);
-    Vector4 operator-(const Vector3& _v);
-    Vector4 operator*(const Vector3& _v);
+    Vector4 operator+(const Vector3& v);
+    Vector4 operator-(const Vector3& v);
+    Vector4 operator*(const Vector3& v);
 
 };

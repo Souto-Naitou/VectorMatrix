@@ -1,25 +1,23 @@
-// Copyright © 2024 Souto-Naitou. All rights reserved.
-// Licensed under the MIT License. See License.txt in the project root for license information.
-
 #pragma once
+
 #include "../Vector3.h"
 #include "../Matrix4x4.h"
 
 namespace Math
 {
-	float cotanf(float _x);
-	float clamp(
-		float _x,
-		float _min,
-		float _max
-	);
-	int clamp(
-		int _x,
-		int _min,
-		int _max
-	);
-	float Lerp(float _x, float _y, float _t);
-	Vector3 TransformNormal(const Vector3& _v, const Matrix4x4& _m);
-	Vector3 Lerp(const Vector3& _vx, const Vector3& _vy, float _t);
-	Vector3 Slerp(const Vector3& _vx, const Vector3& _vy, float _t);
+    float cotanf(float x);
+    float clamp(
+        float x,
+        float min,
+        float max
+    );
+    int clamp(
+        int x,
+        int min,
+        int max
+    );
+    float Lerp(float x, float y, float t);
+    Vector3 TransformNormal(const Vector3& v, const Matrix4x4& m);
+    Vector3 Lerp(const Vector3& vx, const Vector3& vy, float t);
+    Vector3 Slerp(const Vector3& vx, const Vector3& vy, float t);
 }

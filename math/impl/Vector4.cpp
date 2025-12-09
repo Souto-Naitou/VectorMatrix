@@ -8,12 +8,12 @@ Vector4 Vector4::operator-() const
     return Vector4(-x, -y, -z, -w);
 }
 
-void Vector4::Lerp(const Vector4& _begin, const Vector4& _end, float _t)
+void Vector4::Lerp(const Vector4& begin, const Vector4& end, float t)
 {
-    x = _begin.x + (_end.x - _begin.x) * _t;
-    y = _begin.y + (_end.y - _begin.y) * _t;
-    z = _begin.z + (_end.z - _begin.z) * _t;
-    w = _begin.w + (_end.w - _begin.w) * _t;
+    x = begin.x + (end.x - begin.x) * t;
+    y = begin.y + (end.y - begin.y) * t;
+    z = begin.z + (end.z - begin.z) * t;
+    w = begin.w + (end.w - begin.w) * t;
     return;
 }
 
@@ -21,61 +21,61 @@ void Vector4::Lerp(const Vector4& _begin, const Vector4& _end, float _t)
 /// Vector4
 /// =======
 
-Vector4& Vector4::operator+=(const Vector4& _rv)
+Vector4& Vector4::operator+=(const Vector4& rv)
 {
-    x += _rv.x;
-    y += _rv.y;
-    z += _rv.z;
-    w += _rv.w;
+    x += rv.x;
+    y += rv.y;
+    z += rv.z;
+    w += rv.w;
     return *this;
 }
 
-Vector4& Vector4::operator-=(const Vector4& _rv)
+Vector4& Vector4::operator-=(const Vector4& rv)
 {
-    x -= _rv.x;
-    y -= _rv.y;
-    z -= _rv.z;
-    w -= _rv.w;
+    x -= rv.x;
+    y -= rv.y;
+    z -= rv.z;
+    w -= rv.w;
     return *this;
 }
 
-Vector4& Vector4::operator*=(const Vector4& _rv)
+Vector4& Vector4::operator*=(const Vector4& rv)
 {
-    x *= _rv.x;
-    y *= _rv.y;
-    z *= _rv.z;
-    w *= _rv.w;
+    x *= rv.x;
+    y *= rv.y;
+    z *= rv.z;
+    w *= rv.w;
     return *this;
 }
 
-Vector4 Vector4::operator+(const Vector4& _v)
+Vector4 Vector4::operator+(const Vector4& v)
 {
     Vector4 result{};
-    result.x = x + _v.x;
-    result.y = y + _v.y;
-    result.z = z + _v.z;
-    result.w = w + _v.w;
+    result.x = x + v.x;
+    result.y = y + v.y;
+    result.z = z + v.z;
+    result.w = w + v.w;
     return result;
 }
 
 
-Vector4 Vector4::operator-(const Vector4& _v)
+Vector4 Vector4::operator-(const Vector4& v)
 {
     Vector4 result{};
-    result.x = x - _v.x;
-    result.y = y - _v.y;
-    result.z = z - _v.z;
-    result.w = w - _v.w;
+    result.x = x - v.x;
+    result.y = y - v.y;
+    result.z = z - v.z;
+    result.w = w - v.w;
     return result;
 }
 
-Vector4 Vector4::operator*(const Vector4& _v)
+Vector4 Vector4::operator*(const Vector4& v)
 {
     Vector4 result{};
-    result.x = x * _v.x;
-    result.y = y * _v.y;
-    result.z = z * _v.z;
-    result.w = w * _v.w;
+    result.x = x * v.x;
+    result.y = y * v.y;
+    result.z = z * v.z;
+    result.w = w * v.w;
     return result;
 }
 
@@ -84,41 +84,41 @@ Vector4 Vector4::operator*(const Vector4& _v)
 /// =====
 
 
-Vector4 Vector4::operator*(float _f)
+Vector4 Vector4::operator*(float f)
 {
     Vector4 result{};
-    result.x = x * _f;
-    result.y = y * _f;
-    result.z = z * _f;
-    result.w = w * _f;
+    result.x = x * f;
+    result.y = y * f;
+    result.z = z * f;
+    result.w = w * f;
     return result;
 }
 
-Vector4 Vector4::operator/(float _f)
+Vector4 Vector4::operator/(float f)
 {
     Vector4 result{};
-    result.x = x / _f;
-    result.y = y / _f;
-    result.z = z / _f;
-    result.w = w / _f;
+    result.x = x / f;
+    result.y = y / f;
+    result.z = z / f;
+    result.w = w / f;
     return result;
 }
 
-Vector4& Vector4::operator*=(float _f)
+Vector4& Vector4::operator*=(float f)
 {
-    x *= _f;
-    y *= _f;
-    z *= _f;
-    w += _f;
+    x *= f;
+    y *= f;
+    z *= f;
+    w += f;
     return *this;
 }
 
-Vector4& Vector4::operator/=(float _f)
+Vector4& Vector4::operator/=(float f)
 {
-    x /= _f;
-    y /= _f;
-    z /= _f;
-    w /= _f;
+    x /= f;
+    y /= f;
+    z /= f;
+    w /= f;
     return *this;
 }
 
@@ -126,52 +126,52 @@ Vector4& Vector4::operator/=(float _f)
 /// Vector2
 /// =======
 
-Vector4& Vector4::operator+=(const Vector2& _rv)
+Vector4& Vector4::operator+=(const Vector2& rv)
 {
-    x += _rv.x;
-    y += _rv.y;
+    x += rv.x;
+    y += rv.y;
     return *this;
 }
 
-Vector4& Vector4::operator-=(const Vector2& _rv)
+Vector4& Vector4::operator-=(const Vector2& rv)
 {
-    x -= _rv.x;
-    y -= _rv.y;
+    x -= rv.x;
+    y -= rv.y;
     return *this;
 }
 
-Vector4& Vector4::operator*=(const Vector2& _rv)
+Vector4& Vector4::operator*=(const Vector2& rv)
 {
-    x *= _rv.x;
-    y *= _rv.y;
+    x *= rv.x;
+    y *= rv.y;
     return *this;
 }
 
-Vector4 Vector4::operator+(const Vector2& _v)
+Vector4 Vector4::operator+(const Vector2& v)
 {
     Vector4 result{};
-    result.x = x + _v.x;
-    result.y = y + _v.y;
+    result.x = x + v.x;
+    result.y = y + v.y;
     result.z = z;
     result.w = w;
     return result;
 }
 
-Vector4 Vector4::operator-(const Vector2& _v)
+Vector4 Vector4::operator-(const Vector2& v)
 {
     Vector4 result{};
-    result.x = x - _v.x;
-    result.y = y - _v.y;
+    result.x = x - v.x;
+    result.y = y - v.y;
     result.z = z;
     result.w = w;
     return result;
 }
 
-Vector4 Vector4::operator*(const Vector2& _v)
+Vector4 Vector4::operator*(const Vector2& v)
 {
     Vector4 result{};
-    result.x = x * _v.x;
-    result.y = y * _v.y;
+    result.x = x * v.x;
+    result.y = y * v.y;
     result.z = z;
     result.w = w;
     return result;
@@ -181,56 +181,56 @@ Vector4 Vector4::operator*(const Vector2& _v)
 /// Vector3
 /// =======
 
-Vector4& Vector4::operator+=(const Vector3& _rv)
+Vector4& Vector4::operator+=(const Vector3& rv)
 {
-    x += _rv.x;
-    y += _rv.y;
-    z += _rv.z;
+    x += rv.x;
+    y += rv.y;
+    z += rv.z;
     return *this;
 }
 
-Vector4& Vector4::operator-=(const Vector3& _rv)
+Vector4& Vector4::operator-=(const Vector3& rv)
 {
-    x -= _rv.x;
-    y -= _rv.y;
-    z -= _rv.z;
+    x -= rv.x;
+    y -= rv.y;
+    z -= rv.z;
     return *this;
 }
 
-Vector4& Vector4::operator*=(const Vector3& _rv)
+Vector4& Vector4::operator*=(const Vector3& rv)
 {
-    x *= _rv.x;
-    y *= _rv.y;
-    z *= _rv.z;
+    x *= rv.x;
+    y *= rv.y;
+    z *= rv.z;
     return *this;
 }
 
-Vector4 Vector4::operator+(const Vector3& _v)
+Vector4 Vector4::operator+(const Vector3& v)
 {
     Vector4 result{};
-    result.x = x + _v.x;
-    result.y = y + _v.y;
-    result.z = z + _v.z;
+    result.x = x + v.x;
+    result.y = y + v.y;
+    result.z = z + v.z;
     result.w = w;
     return result;
 }
 
-Vector4 Vector4::operator-(const Vector3& _v)
+Vector4 Vector4::operator-(const Vector3& v)
 {
     Vector4 result{};
-    result.x = x - _v.x;
-    result.y = y - _v.y;
-    result.z = z - _v.z;
+    result.x = x - v.x;
+    result.y = y - v.y;
+    result.z = z - v.z;
     result.w = w;
     return result;
 }
 
-Vector4 Vector4::operator*(const Vector3& _v)
+Vector4 Vector4::operator*(const Vector3& v)
 {
     Vector4 result{};
-    result.x = x * _v.x;
-    result.y = y * _v.y;
-    result.z = z * _v.z;
+    result.x = x * v.x;
+    result.y = y * v.y;
+    result.z = z * v.z;
     result.w = w;
     return result;
 }
@@ -239,12 +239,12 @@ Vector4 Vector4::operator*(const Vector3& _v)
 /// overscope
 /// =========
 
-Vector4 operator*(const float _f, const Vector4& _v)
+Vector4 operator*(const float f, const Vector4& v)
 {
-    return Vector4(_v.x * _f, _v.y * _f, _v.z * _f, _v.w * _f);
+    return Vector4(v.x * f, v.y * f, v.z * f, v.w * f);
 }
 
-Vector4 operator/(const float _f, const Vector4& _v)
+Vector4 operator/(const float f, const Vector4& v)
 {
-    return Vector4(_v.x / _f, _v.y / _f, _v.z / _f, _v.w / _f);
+    return Vector4(v.x / f, v.y / f, v.z / f, v.w / f);
 }

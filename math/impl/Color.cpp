@@ -3,18 +3,18 @@
 #include <sstream>
 #include <algorithm>
 
-RGBA RGB::to_RGBA(uint8_t _a) const
+RGBA RGB::to_RGBA(uint8_t a) const
 {
-    return RGBA{ r_, g_, b_, _a };
+    return RGBA{ r, g, b, a };
 }
 
-RGBA color::create(const std::string& _colorstr)
+RGBA color::create(const std::string& colorstr)
 {
     bool isHex = false;
     bool isRGBA = false;
     bool isRGB = false;
 
-    std::string prefix = _colorstr.substr(0, 4);
+    std::string prefix = colorstr.substr(0, 4);
 
     if (prefix.front() == '#') { isHex = true; }
     else if (prefix == "rgba") { isRGBA = true; }
@@ -26,58 +26,58 @@ RGBA color::create(const std::string& _colorstr)
     {
         // #FF0000
         //  ^^^^^^
-        payload = _colorstr.substr(1);
-        return _HexToRGBA(payload);
+        payload = colorstr.substr(1);
+        return HexToRGBA(payload);
     }
     else if (isRGBA)
     {
         // rgba(255, 0, 0, 1)
         //      ^^^^^^^^^^^^
-        payload = _colorstr.substr(5, _colorstr.size() - 6);
-        return _RGBAToRGBA(payload);
+        payload = colorstr.substr(5, colorstr.size() - 6);
+        return RGBAToRGBA(payload);
     }
     else if (isRGB)
     {
         // rgb(255, 0, 0)
         //     ^^^^^^^^^
-        payload = _colorstr.substr(4, _colorstr.size() - 5);
-        return _RGBToRGBA(payload);
+        payload = colorstr.substr(4, colorstr.size() - 5);
+        return RGBToRGBA(payload);
     }
 
     return {};
 }
 
-RGBA color::_HexToRGBA(const std::string& _hexstr)
+RGBA color::HexToRGBA(const std::string& hexstr)
 {
-    if (_hexstr.size() == 6)
+    if (hexstr.size() == 6)
     {
         // AABBCC
-        return RGBA{ static_cast<uint8_t>(std::stoul(_hexstr.substr(0, 2), nullptr, 16)),
-            static_cast<uint8_t>(std::stoul(_hexstr.substr(2, 2), nullptr, 16)),
-            static_cast<uint8_t>(std::stoul(_hexstr.substr(4, 2), nullptr, 16)),
+        return RGBA{ static_cast<uint8_t>(std::stoul(hexstr.substr(0, 2), nullptr, 16)),
+            static_cast<uint8_t>(std::stoul(hexstr.substr(2, 2), nullptr, 16)),
+            static_cast<uint8_t>(std::stoul(hexstr.substr(4, 2), nullptr, 16)),
             255 };
     }
-    else if (_hexstr.size() == 8)
+    else if (hexstr.size() == 8)
     {
         // AABBCCDD
-        return RGBA{ static_cast<uint8_t>(std::stoul(_hexstr.substr(0, 2), nullptr, 16)),
-            static_cast<uint8_t>(std::stoul(_hexstr.substr(2, 2), nullptr, 16)),
-            static_cast<uint8_t>(std::stoul(_hexstr.substr(4, 2), nullptr, 16)),
-            static_cast<uint8_t>(std::stoul(_hexstr.substr(6, 2), nullptr, 16)) };
+        return RGBA{ static_cast<uint8_t>(std::stoul(hexstr.substr(0, 2), nullptr, 16)),
+            static_cast<uint8_t>(std::stoul(hexstr.substr(2, 2), nullptr, 16)),
+            static_cast<uint8_t>(std::stoul(hexstr.substr(4, 2), nullptr, 16)),
+            static_cast<uint8_t>(std::stoul(hexstr.substr(6, 2), nullptr, 16)) };
     }
 
     return {};
 }
 
-RGBA color::_RGBToRGBA(const std::string& _rgbstr)
+RGBA color::RGBToRGBA(const std::string& rgbstr)
 {
-    // _rgbstr == 255, 0, 0
+    // rgbstr == 255, 0, 0
 
     // カンマで分割
     RGBA result = {};
     std::array<uint8_t, 3> rgb = {};
 
-    std::istringstream ss(_rgbstr);
+    std::istringstream ss(rgbstr);
     std::string token;
     size_t i = 0;
     while (std::getline(ss, token, ',') && i < 3)
@@ -86,23 +86,23 @@ RGBA color::_RGBToRGBA(const std::string& _rgbstr)
         ++i;
     }
 
-    result.r() = rgb[0];
-    result.g() = rgb[1];
-    result.b() = rgb[2];
-    result.a() = 255;
+    result.r = rgb[0];
+    result.g = rgb[1];
+    result.b = rgb[2];
+    result.a = 255;
 
     return result;
 }
 
-RGBA color::_RGBAToRGBA(const std::string& _rgbastr)
+RGBA color::RGBAToRGBA(const std::string& rgbastr)
 {
-    // _rgbastr == 255, 0, 0, 1
+    // rgbastr == 255, 0, 0, 1
 
     // カンマで分割
     RGBA result = {};
     std::array<uint8_t, 4> rgba = {};
 
-    std::istringstream ss(_rgbastr);
+    std::istringstream ss(rgbastr);
     std::string token;
     size_t i = 0;
     while (std::getline(ss, token, ',') && i < 4)
@@ -111,10 +111,10 @@ RGBA color::_RGBAToRGBA(const std::string& _rgbastr)
         ++i;
     }
 
-    result.r() = rgba[0];
-    result.g() = rgba[1];
-    result.b() = rgba[2];
-    result.a() = rgba[3];
+    result.r = rgba[0];
+    result.g = rgba[1];
+    result.b = rgba[2];
+    result.a = rgba[3];
 
     return result;
 }
@@ -158,9 +158,9 @@ RGB HSV::to_RGB() const
 
 HSV RGBA::to_HSV() const
 {
-    float r = r_ / 255.0f;
-    float g = g_ / 255.0f;
-    float b = b_ / 255.0f;
+    float r = r / 255.0f;
+    float g = g / 255.0f;
+    float b = b / 255.0f;
     float max = std::max({ r, g, b });
     float min = std::min({ r, g, b });
     float h, s, v = max;
