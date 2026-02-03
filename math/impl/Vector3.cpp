@@ -59,14 +59,6 @@ void Vector3::Lerp(const Vector3& begin, const Vector3& end, float t)
     return;
 }
 
-void Vector3::Theta(float azimuth, float elevation, const Vector3& origin) const
-{
-    Vector3 distance = *this - origin;
-    azimuth = std::atan2(distance.y, distance.x);
-    elevation = std::atan2(distance.z, sqrtf(distance.x * distance.x + distance.y * distance.y));
-    return;
-}
-
 float Vector3::Projection(const Vector3& a) const
 {
     Vector3 axis = a.Normalized();
