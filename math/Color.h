@@ -8,16 +8,10 @@
 #undef RGB
 #undef RGBA
 
-class IColor
-{
-public:
-    virtual ~IColor() = default;
-};
-
 class RGBA;
 class HSV;
 
-class RGB : public IColor
+class RGB
 {
 public:
     RGB() = default;
@@ -72,7 +66,7 @@ public:
     Vector3 to_Vector3() const { return Vector3(this->r / 255.0f, this->g / 255.0f, this->b / 255.0f); }
 };
 
-class RGBA : public IColor
+class RGBA
 {
 public:
     RGBA() = default;
@@ -82,10 +76,11 @@ public:
     uint8_t b = 255u;
     uint8_t a = 255u;
 
-    RGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a) : r(r), g(g), b(b), a(a) {}
-    RGBA(const RGBA& other) : r(other.r), g(other.g), b(other.b), a(other.a) {}
-    RGBA(uint32_t rgba) : r((rgba >> 24) & 0xFF), g((rgba >> 16) & 0xFF), b((rgba >> 8) & 0xFF), a(rgba & 0xFF) {}
-    RGBA(RGBA&& other) noexcept : r(other.r), g(other.g), b(other.b), a(other.a) {}
+    constexpr RGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a) : r(r), g(g), b(b), a(a) {}
+    constexpr RGBA(const RGBA& other) : r(other.r), g(other.g), b(other.b), a(other.a) {}
+    constexpr RGBA(uint32_t rgba) : r((rgba >> 24) & 0xFF), g((rgba >> 16) & 0xFF), b((rgba >> 8) & 0xFF), a(rgba & 0xFF) {}
+    constexpr RGBA(RGBA&& other) noexcept : r(other.r), g(other.g), b(other.b), a(other.a) {}
+
     RGBA(const Vector4& other)
     {
         this->r = static_cast<uint8_t>(other.x * 255);
@@ -94,7 +89,7 @@ public:
         this->a = static_cast<uint8_t>(other.w * 255);
     }
 
-    RGBA& operator=(const RGBA& other)
+    constexpr RGBA& operator=(const RGBA& other)
     {
         this->r = other.r;
         this->g = other.g;
@@ -103,7 +98,7 @@ public:
         return *this;
     }
 
-    RGBA& operator=(RGBA&& other) noexcept
+    constexpr RGBA& operator=(RGBA&& other) noexcept
     {
         this->r = other.r;
         this->g = other.g;
@@ -112,7 +107,7 @@ public:
         return *this;
     }
 
-    RGBA& operator=(const Vector4& other)
+    constexpr RGBA& operator=(const Vector4& other)
     {
         this->r = static_cast<uint8_t>(other.x * 255);
         this->g = static_cast<uint8_t>(other.y * 255);
@@ -121,7 +116,7 @@ public:
         return *this;
     }
 
-    RGBA& operator=(Vector4&& other)
+    constexpr RGBA& operator=(Vector4&& other)
     {
         this->r = static_cast<uint8_t>(other.x * 255);
         this->g = static_cast<uint8_t>(other.y * 255);
@@ -138,7 +133,7 @@ public:
     HSV to_HSV() const;
 };
 
-class HSV : public IColor
+class HSV
 {
 public:
 
