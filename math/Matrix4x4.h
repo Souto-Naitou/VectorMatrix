@@ -2,6 +2,7 @@
 
 /// 前方宣言
 class Vector3;
+class Vector2;
 class Quaternion;
 
 /// <summary>
@@ -138,6 +139,13 @@ public:
     /// <param name="translate">移動量</param>
     /// <returns></returns>
     static Matrix4x4 TranslateMatrix(const Vector3& translate);
+
+    /// <summary>
+    /// 2D移動行列
+    /// </summary>
+    /// <param name="translate"></param>
+    /// <returns></returns>
+    static Matrix4x4 TranslateMatrix(const Vector2& translate);
 
     Vector3 GetTranslation() const;
 

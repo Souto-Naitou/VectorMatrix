@@ -290,6 +290,14 @@ Matrix4x4 Matrix4x4::TranslateMatrix(const Vector3& _translate)
     return result;
 }
 
+Matrix4x4 Matrix4x4::TranslateMatrix(const Vector2& translate)
+{
+    Matrix4x4 result = Matrix4x4::Identity();
+    result.m[3][0] = translate.x;
+    result.m[3][1] = translate.y;
+    return result;
+}
+
 Vector3 Matrix4x4::GetTranslation() const
 {
     return Vector3(m[3][0], m[3][1], m[3][2]);
