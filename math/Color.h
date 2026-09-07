@@ -141,6 +141,8 @@ public:
     HSV(float h, float s, float v) : h_(h), s_(s), v_(v) {}
     HSV(const HSV& other) : h_(other.h_), s_(other.s_), v_(other.v_) {}
     HSV(HSV&& other) noexcept : h_(other.h_), s_(other.s_), v_(other.v_) {}
+    HSV& operator=(const HSV& other) { this->h_ = other.h_; this->s_ = other.s_; this->v_ = other.v_; return *this; }
+    HSV& operator=(HSV&& other) noexcept { this->h_ = other.h_; this->s_ = other.s_; this->v_ = other.v_; return *this; }
 
     float& h() { return h_; }
     float& s() { return s_; }
